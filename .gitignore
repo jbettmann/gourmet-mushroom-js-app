@@ -1,6 +1,7 @@
 # Compiled Object files
 *.o
 *.obj
+.DS_Store
 
 # Compiled Dynamic libraries
 *.so
