@@ -22,3 +22,11 @@ let mushroomList = [
   //flavor notes of ojbect
     flavor: ['crab', 'lobster']
   }
+  //name of object--------------------------------
+  { name: 'Chanterelle',
+  //market value of object per lbs
+    value: 200,
+  //flavor notes of ojbect
+    flavor: ['fruity', 'nutty']
+  }
+];
