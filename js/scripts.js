@@ -28,5 +28,11 @@ let mushroomList = [
     value: 200,
     //flavor notes of ojbect
     flavor: ['fruity', 'nutty']
-  }
+  },
+    //name of object--------------------------------
+  { name: 'White Truffle',
+    //market value of object per lbs
+    value: 4500,
+    //flavor notes of ojbect
+    flavor: ['garlic', 'shallots']
 ];
