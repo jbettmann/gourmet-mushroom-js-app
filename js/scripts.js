@@ -36,3 +36,8 @@ let mushroomList = [
     //flavor notes of ojbect
     flavor: ['garlic', 'shallots']
 ];
+
+
+
+  document.write(mushroomList);
+document.write('Hello World');
