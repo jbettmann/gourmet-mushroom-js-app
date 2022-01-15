@@ -1,0 +1,34 @@
+:root {
+  --background: #fff; /* White */
+  --secondary-color: #e1d4bf; /* dusty brown */
+  --text-color: #000; /* black */
+
+  --font-style: 'Alegreya Sans';
+  --font-size: 16px;
+  --font-weight: 500;
+  --secondary-font-weight: 400;
+
+}
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    background-color: var(--background);
+    color: var(--text-color);
+    font-family: var(--font-style), sans-serif;
+    font-size: var(--font-size);
+    font-weight: var(--font-weight);
+}
+
+body p {
+    text-align: center;
+    margin: 20px auto;
+
+}
+span {
+    font-weight: var(--secondary-font-weight);
+    font-size: 12px;
+    font-style: italic;
+}
