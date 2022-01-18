@@ -71,8 +71,8 @@ let mushroomRepo = (function () {
 })();
 
 
-// forEach() function - iterats over list and prints out array
-mushroomList.forEach(function(list) {
+// Executes an example of creating an IIFE (mushroomRepo) and implements methodes (getAll()) to iterate over mushroomList and print array
+mushroomRepo.getAll().forEach(function(list) {
       // condition for values 10 and 11 (Shiitake and Lion's Mane)
   if (list.value >= 10 && list.value <= 11) {
     document.write(`<p> ${list.name} (price: ${list.value} $/lbs) <br> <span> That's a pretty reasonable price!</span></p>`);
