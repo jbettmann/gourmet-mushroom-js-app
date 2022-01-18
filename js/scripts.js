@@ -44,7 +44,31 @@ let mushroomRepo = (function () {
   function getAll() {
     return mushroomList;
   }
-];
+
+  // adds new mushroom item to mushroomList array
+  function add(item) {
+    // ***BONUS TASK*** makes sure item is an object in order to be summited
+    if (typeof item === 'object') {
+      // ***BONUS TASK*** makes sure item has identical keys in order to be summited. If so, alerts that new mushroom was found!
+      if (Object.keys(mushroomList[0]).every(key => key in item)) {
+      alert(`You have found a new mushroom! ${item.name} has been added to your list.`)
+      mushroomList.push(item);
+      // ***BONUS TASK*** If not all submited, alerts to double check all data is entered.
+      } else {
+      alert(`The data for the new mushroom you found isn't complete. Please make sure you have no missing fields.`);
+      }
+      // ***BONUS TASK*** If no match, alerts that data is not correct data type.
+    } else {
+    alert(`${item.name} is not a vailed mushroom. Please check to make sure your mushroom is an object!`);
+    }
+  };
+
+  // objects being defined
+  return {
+    getAll: getAll,
+    add: add
+  };
+})();
 
 
 // forEach() function - iterats over list and prints out array
