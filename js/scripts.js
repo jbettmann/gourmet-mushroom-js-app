@@ -38,28 +38,7 @@ let mushroomList = [
   }
 ];
 
-for (let i = 0; i < mushroomList.length; i++) {
-      // condition for values 10 and 11 (Shiitake and Lion's Mane)
-  if (mushroomList[i].value >= 10 && mushroomList[i].value <= 11) {
-    document.write(`<p> ${mushroomList[i].name} (price: ${mushroomList[i].value} $/lbs) <br> <span> That's a pretty reasonable price!</span></p>`);
 
-    // condition for value 200 (Chanterelle)
-  } else if (mushroomList[i].value === 200) {
-    document.write(`<p> ${mushroomList[i].name} (price: ${mushroomList[i].value} $/lbs) <br> <span> That's an expensive mushroom.</span></p>`);
-
-    // condition for value 4500 (White Truffle)
-  } else if (mushroomList[i].value >= 4500) {
-    document.write(`<p> ${mushroomList[i].name} (price: ${mushroomList[i].value} $/lbs) <br> <span> WOW. Nevermind, THAT is an expensive mushroom!</span></p>`);
-
-  } else {
-    document.write(`<p> ${mushroomList[i].name} (price: ${mushroomList[i].value} $/lbs)</span></p>`);
-  }
-}
-
-
-// prints out array
-function printList (list) {
-  for (let i = 0; i < list.length; i++) {
       // condition for values 10 and 11 (Shiitake and Lion's Mane)
   if (list[i].value >= 10 && list[i].value <= 11) {
     document.write(`<p> ${list[i].name} (price: ${list[i].value} $/lbs) <br> <span> That's a pretty reasonable price!</span></p>`);
