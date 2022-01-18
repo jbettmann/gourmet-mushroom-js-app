@@ -66,11 +66,16 @@ let mushroomRepo = (function () {
       alert(`${item.name} is not a vailed mushroom. Please check to make sure your mushroom is an object!`);
     }
   };
+    // Couldnt get this on to work
+  function findName(name) {
+      return mushroomList.filter(name);
+  };
 
   // objects being defined
   return {
     getAll: getAll,
-    add: add
+    add: add,
+    findName: findName
   };
 })();
 
