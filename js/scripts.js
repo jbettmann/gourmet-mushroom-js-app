@@ -39,22 +39,21 @@ let mushroomList = [
 ];
 
 
+// forEach() function - iterats over list and prints out array
+mushroomList.forEach(function(list) {
       // condition for values 10 and 11 (Shiitake and Lion's Mane)
-  if (list[i].value >= 10 && list[i].value <= 11) {
-    document.write(`<p> ${list[i].name} (price: ${list[i].value} $/lbs) <br> <span> That's a pretty reasonable price!</span></p>`);
+  if (list.value >= 10 && list.value <= 11) {
+    document.write(`<p> ${list.name} (price: ${list.value} $/lbs) <br> <span> That's a pretty reasonable price!</span></p>`);
 
     // condition for value 200 (Chanterelle)
-  } else if (list[i].value === 200) {
-    document.write(`<p> ${list[i].name} (price: ${list[i].value} $/lbs) <br> <span> That's an expensive mushroom.</span></p>`);
+  } else if (list.value === 200) {
+    document.write(`<p> ${list.name} (price: ${list.value} $/lbs) <br> <span> That's an expensive mushroom.</span></p>`);
 
     // condition for value 4500 (White Truffle)
-  } else if (list[i].value >= 4500) {
-    document.write(`<p> ${list[i].name} (price: ${list[i].value} $/lbs) <br> <span> WOW. Nevermind, THAT is an expensive mushroom!</span></p>`);
+  } else if (list.value >= 4500) {
+    document.write(`<p> ${list.name} (price: ${list.value} $/lbs) <br> <span> WOW. Nevermind, THAT is an expensive mushroom!</span></p>`);
 
   } else {
-    document.write(`<p> ${list[i].name} (price: ${list[i].value} $/lbs)</span></p>`);
+    document.write(`<p> ${list.name} (price: ${list.value} $/lbs)</span></p>`);
     }
-  }
-}
-
-printList(mushroomList);
+  });
