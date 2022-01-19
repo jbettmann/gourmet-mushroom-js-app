@@ -67,10 +67,10 @@ let mushroomRepo = (function () {
     }
   };
     // Couldnt get this on to work
-  function searchName(findName) {
-      var findName = mushroomList.filter((name) => {
-        return mushroomList.name === name;
-      })
+  function searchName(name) {
+      var findName = mushroomList.filter((mushroom) => {
+       return mushroom.name === name;
+     });
     return findName;
   };
 
@@ -83,7 +83,7 @@ let mushroomRepo = (function () {
   };
 })();
 
-console.log(mushroomRepo.searchName('Shiitake'))
+console.log(mushroomRepo.searchName('Shiitake'));
 
 // Executes an example of creating an IIFE (mushroomRepo) and implements methodes (getAll()) to iterate over mushroomList and print array
 mushroomRepo.getAll().forEach(function(list) {
