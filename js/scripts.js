@@ -67,18 +67,23 @@ let mushroomRepo = (function () {
     }
   };
     // Couldnt get this on to work
-  function findName(name) {
-      return mushroomList.filter(name);
+  function searchName(findName) {
+      var findName = mushroomList.filter((name) => {
+        return mushroomList.name === name;
+      })
+    return findName;
   };
+
 
   // objects being defined
   return {
     getAll: getAll,
     add: add,
-    findName: findName
+    searchName: searchName
   };
 })();
 
+console.log(mushroomRepo.searchName('Shiitake'))
 
 // Executes an example of creating an IIFE (mushroomRepo) and implements methodes (getAll()) to iterate over mushroomList and print array
 mushroomRepo.getAll().forEach(function(list) {
