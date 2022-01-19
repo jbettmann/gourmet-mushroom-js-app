@@ -48,29 +48,32 @@ let mushroomRepo = (function () {
   // adds new mushroom item to mushroomList array
   function add(item) {
 
-    // ***BONUS TASK*** makes sure item is an object in order to be summited
+    // checks item is an object in order to be summited
     if (typeof item === 'object') {
 
-      // ***BONUS TASK*** makes sure item has identical keys in order to be summited. If so, alerts that new mushroom was found!
+      //  checks item has identical keys in order to be summited. If so, alerts that new mushroom was found!
       if (Object.keys(mushroomList[0]).every(key => key in item)) {
         alert(`You have found a new mushroom! ${item.name} has been added to your list.`)
         mushroomList.push(item);
 
-      // ***BONUS TASK*** If not all submited, alerts to double check all data is entered.
+      // If not all keys submited, alerts to double check all data is entered.
     } else {
         alert(`The data for the new mushroom you found isn't complete. Please make sure you have no missing fields.`);
       }
     }
-    // ***BONUS TASK*** If no match, alerts that data is not correct data type.
+    //  If no match, alerts that data is not correct data type.
     else {
       alert(`${item.name} is not a vailed mushroom. Please check to make sure your mushroom is an object!`);
     }
   };
-    // Couldnt get this on to work
+    // filters .mushroomList array by 'name' key
   function searchName(name) {
+      // assign the filter function to variable 'findName'
       var findName = mushroomList.filter((mushroom) => {
+        // returns 'true' if argument is equal to mushroomList.name is equal
        return mushroom.name === name;
      });
+     // returns 'findName' varable to 'searchName' function with new array if mushroom.name === name
     return findName;
   };
 
