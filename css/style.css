@@ -17,14 +17,17 @@
 
 
 body {
-    display: flex;
-    flex-direction: column;
-    width: 100vw;
-    background-color: var(--background);
-    color: var(--text-color);
-    font-family: var(--font-style), sans-serif;
-    font-size: var(--font-size);
-    font-weight: var(--font-weight);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: var(--background);
+  color: var(--text-color);
+  font-family: var(--font-style), sans-serif;
+  font-size: var(--font-size);
+  font-weight: var(--font-weight);
 }
 
 body p {
