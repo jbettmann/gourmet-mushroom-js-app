@@ -69,7 +69,29 @@ let mushroomRepo = (function() {
       alert(`${item.name} is not a vailed mushroom. Please check to make sure your mushroom is an object!`);
     }
   };
-    // filters .mushroomList array by 'name' key
+
+  function addListItem(mushroomName) {
+
+    let mushroomListItems = document.querySelector('ul');
+    let listItem = document.createElement('li');
+    let button = document.createElement('button');
+    let spanShadow = document.createElement('span');
+    let spanEdge = document.createElement('span');
+    let spanFront = document.createElement('span');
+    spanFront.innerText = mushroomName.name;
+    spanShadow.classList.add('shadow');
+    spanEdge.classList.add('edge');
+    spanFront.classList.add('front');
+    button.classList.add('mushroom-list-button');
+    button.appendChild(spanShadow);
+    button.appendChild(spanEdge);
+    button.appendChild(spanFront);
+    listItem.appendChild(button);
+    mushroomListItems.appendChild(listItem);
+
+  }
+
+  // filters .mushroomList array by 'name' key
   function searchName(name) {
       // assign the filter function to variable 'findName'
       var findName = mushroomList.filter((mushroom) => {
@@ -86,6 +108,7 @@ let mushroomRepo = (function() {
     getAll: getAll,
     add: add,
     searchName: searchName
+    addListItem: addListItem
   };
 })();
 
