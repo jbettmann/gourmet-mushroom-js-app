@@ -41,3 +41,108 @@ span {
     font-size: 12px;
     font-style: italic;
 }
+
+/* basic styling for mushroom buttons */
+.mushroom-list-button {
+  width: 100%;
+  margin: 8px 0;
+  color: #fff;
+	text-align: center;
+	letter-spacing: 1px;
+  position: relative;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  outline-offset: 4px;
+  transition: filter 250ms;
+  user-select: none; /* prohibits button text from being selected on iOs */
+  -webkit-tap-highlight-color: transparent; /*removes gray rectangle that flashes when clicked */
+}
+
+/* last or bottom layer of button */
+.shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  background: hsl(0deg 0% 0% / .025);
+  will-change: transform;
+  transform: translateY(2px);
+  transition:
+    transform
+    600ms
+    cubic-bezier(.3, .7, .4, 1);
+}
+
+/* middle layer of button */
+.edge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 11px;
+  background: linear-gradient(
+    to left,
+    var(--button-dark-grad) 0%,
+    var(--button-ligher-grad) 8%,
+    var(--button-ligher-grad) 92%,
+    var(--button-dark-grad) 100%
+  );
+}
+
+/* top most layer of button  */
+.front {
+  display: block;
+  font-family: var(--font-style), sans-serif;
+  position: relative;
+  padding: 8px 20px;
+  border-radius: 10px;
+  font-size: 1.25rem;
+  color: white;
+  background: var(--button-color);
+  will-change: transform;
+  transform: translateY(-4px);
+  transition:
+    transform
+    600ms
+    cubic-bezier(.3, .7, .4, 1);
+}
+
+.mushroom-list-button:hover {
+  transition: filter 250ms;
+  filter: brightness(110%);
+}
+
+.mushroom-list-button:hover .front {
+  transform: translateY(-5px);
+  transition:
+    transform
+    250ms
+    cubic-bezier(.3, .7, .4, 1.5);
+}
+
+.mushroom-list-button:active .front {
+  transform: translateY(-2px);
+  transition: transform 34ms;
+}
+
+.mushroom-list-button:hover .shadow {
+  transform: translateY(4px);
+  transition:
+    transform
+    250ms
+    cubic-bezier(.3, .7, .4, 1.5);
+}
+
+.mushroom-list-button:active .shadow {
+  transform: translateY(1px);
+  transition: transform 34ms;
+}
+
+.mushroom-list-button:focus:not(:focus-visible) {
+  outline: none;
+}
