@@ -93,12 +93,12 @@ let mushroomRepo = (function() {
 
   // filters .mushroomList array by 'name' key
   function searchName(name) {
-      // assign the filter function to variable 'findName'
-      var findName = mushroomList.filter((mushroom) => {
-        // returns 'true' if argument is equal to mushroomList.name is equal
-       return mushroom.name === name;
-     });
-     // returns 'findName' varable to 'searchName' function with new array if mushroom.name === name
+    // assign the filter function to variable 'findName'
+    var findName = mushroomList.filter((mushroom) => {
+      // returns 'true' if argument is equal to mushroomList.name is equal
+      return mushroom.name === name;
+    });
+    // returns 'findName' varable to 'searchName' function with new array if mushroom.name === name
     return findName;
   };
 
@@ -107,7 +107,7 @@ let mushroomRepo = (function() {
   return {
     getAll: getAll,
     add: add,
-    searchName: searchName
+    searchName: searchName,
     addListItem: addListItem
   };
 })();
