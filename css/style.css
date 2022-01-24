@@ -42,6 +42,16 @@ span {
     font-style: italic;
 }
 
+.mushroom-list {
+  background-color: var(--mushroom-dex-color);
+  color: #fff;
+  list-style: none;
+  padding: 40px;
+  border-radius: 10px;
+  border: 5px var(--mushroom-dex-border) solid;
+  box-shadow: 1px 3px 6px 1px #000;
+}
+
 /* basic styling for mushroom buttons */
 .mushroom-list-button {
   width: 100%;
