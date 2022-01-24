@@ -1,38 +1,41 @@
-
-
 //  IIFE for mushroomList to avoid accidentally accessing the Global state
-let mushroomRepo = (function () {
+let mushroomRepo = (function() {
   let mushroomList = [
-      //name of object--------------------------------
-    { name: 'Shiitake',
+    //name of object--------------------------------
+    {
+      name: 'Shiitake',
       //market value of object $/lbs
       value: 11,
       //flavor notes of ojbect
       flavor: ['nutty', 'meaty']
     },
-      //name of object--------------------------------
-    { name: 'Oyster',
+    //name of object--------------------------------
+    {
+      name: 'Oyster',
       //market value of object $/lbs
       value: 12,
       //flavor notes of ojbect
       flavor: ['earthy', 'peppery', 'shellfish']
     },
-      //name of object--------------------------------
-    { name: 'Lion\'s Mane',
+    //name of object--------------------------------
+    {
+      name: 'Lion\'s Mane',
       //market value of object $/lbs
       value: 10,
       //flavor notes of ojbect
       flavor: ['crab', 'lobster']
     },
-      //name of object--------------------------------
-    { name: 'Chanterelle',
+    //name of object--------------------------------
+    {
+      name: 'Chanterelle',
       //market value of object $/lbs
       value: 200,
       //flavor notes of ojbect
       flavor: ['fruity', 'nutty']
     },
-      //name of object--------------------------------
-    { name: 'White Truffle',
+    //name of object--------------------------------
+    {
+      name: 'White Truffle',
       //market value of object $/lbs
       value: 4500,
       //flavor notes of ojbect
@@ -56,8 +59,8 @@ let mushroomRepo = (function () {
         alert(`You have found a new mushroom! ${item.name} has been added to your list.`)
         mushroomList.push(item);
 
-      // If not all keys submited, alerts to double check all data is entered.
-    } else {
+        // If not all keys submited, alerts to double check all data is entered.
+      } else {
         alert(`The data for the new mushroom you found isn't complete. Please make sure you have no missing fields.`);
       }
     }
