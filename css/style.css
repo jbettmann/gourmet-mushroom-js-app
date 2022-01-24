@@ -2,12 +2,17 @@
   --background: #fff; /* White */
   --secondary-color: #e1d4bf; /* dusty brown */
   --text-color: #000; /* black */
+  --button-color: #6c865e; /* forest green */
+  --button-ligher-grad: #405038; /* dark green */
+  --button-dark-grad: #20281C; /* darker green */
+
+  --mushroom-dex-color: #EADEB8; /* tan */
+  --mushroom-dex-border: #a39b80; /* dark tan */
 
   --font-style: 'Alegreya Sans';
   --font-size: 16px;
   --font-weight: 500;
   --secondary-font-weight: 400;
-
 }
 
 
