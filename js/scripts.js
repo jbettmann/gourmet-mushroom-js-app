@@ -112,25 +112,7 @@ let mushroomRepo = (function() {
   };
 })();
 
-console.log(mushroomRepo.searchName('Shiitake'));
-
 // Executes an example of creating an IIFE (mushroomRepo) and implements methodes (getAll()) to iterate over mushroomList and print array
 mushroomRepo.getAll().forEach(function(list) {
-      // condition for values 10 and 11 (Shiitake and Lion's Mane)
-  if (list.value >= 10 && list.value <= 11) {
-    document.write(`<p> ${list.name} (price: ${list.value} $/lbs) <br> <span> That's a pretty reasonable price!</span></p>`);
-
-    // condition for value 200 (Chanterelle)
-  } else if (list.value === 200) {
-    document.write(`<p> ${list.name} (price: ${list.value} $/lbs) <br> <span> That's an expensive mushroom.</span></p>`);
-
-    // condition for value 4500 (White Truffle)
-  } else if (list.value >= 4500) {
-    document.write(`<p> ${list.name} (price: ${list.value} $/lbs) <br> <span> WOW. Nevermind, THAT is an expensive mushroom!</span></p>`);
-
-  } else {
-    document.write(`<p> ${list.name} (price: ${list.value} $/lbs)</span></p>`);
-    }
-  });
   return mushroomRepo.addListItem(list);
 });
