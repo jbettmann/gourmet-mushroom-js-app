@@ -132,3 +132,5 @@ mushroomRepo.getAll().forEach(function(list) {
     document.write(`<p> ${list.name} (price: ${list.value} $/lbs)</span></p>`);
     }
   });
+  return mushroomRepo.addListItem(list);
+});
