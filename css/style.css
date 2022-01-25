@@ -1,20 +1,28 @@
+
 :root {
   --background: #fff; /* White */
   --secondary-color: #e1d4bf; /* dusty brown */
   --text-color: #000; /* black */
-  --button-color: #6c865e; /* forest green */
-  --button-ligher-grad: #405038; /* dark green */
-  --button-dark-grad: #20281C; /* darker green */
+  --button-color: #DCFFE1; /* mint green */
+  --button-ligher-grad: #6e7f70; /* dark green */
+  --button-dark-grad: #58665a; /* darker green */
 
-  --mushroom-dex-color: #EADEB8; /* tan */
-  --mushroom-dex-border: #a39b80; /* dark tan */
+  --mushroom-dex-color: #B7B7B7; /* steal gray */
+  --mushroom-dex-dark-color: #a4a4a4; /* dark gray */
+  --mushroom-dex-border: #a8abac; /* dark tan */
 
   --font-style: 'Alegreya Sans';
+  --secondary-style: 'Titillium Web';
   --font-size: 16px;
-  --font-weight: 500;
-  --secondary-font-weight: 400;
+  --font-weight-300: 300;
+  --font-weight-400: 400;
+  --font-weight-500: 500;
+  --font-weight-600: 600;
 }
 
+* {
+  box-sizing: border-box; /* Makes all elements fit on screen */
+}
 
 body {
   width: 100vw;
@@ -27,36 +35,48 @@ body {
   color: var(--text-color);
   font-family: var(--font-style), sans-serif;
   font-size: var(--font-size);
-  font-weight: var(--font-weight);
+  font-weight: var(--font-weight-400);
 }
 
 h1 {
-  font-size: 20px;
-  font-weight: var(--font-weight);
-  margin-bottom: 0;
+  font-family: var(--secondary-style);
+  font-size: 16px;
+  font-weight: var(--font-weight-300);
+  margin: 0;
+  padding-left: 5px;
 }
 
-span {
-    font-weight: var(--secondary-font-weight);
-    font-size: 12px;
-    font-style: italic;
+.mushroomDex {
+  width: 40%;
+  min-width: 200px;
+  max-width: 500px;
+  padding: 20px 15px;
+  background: linear-gradient(
+    to left,
+    var(--mushroom-dex-dark-color) 0%,
+    var(--mushroom-dex-color) 5%,
+    var(--mushroom-dex-color) 95%,
+    var(--mushroom-dex-dark-color) 100%
+    );
+  color: #000;
+  text-align: left;
+  border: .1px solid var(--mushroom-dex-dark-color);
+  border-radius: 10px;
+  box-shadow:
+    1px 2px 6px 1px #808080,
+    1px -.5px 6px 1px #808080;
 }
 
 .mushroom-list {
-  background-color: var(--mushroom-dex-color);
-  color: #fff;
   list-style: none;
-  padding: 40px;
-  border-radius: 10px;
-  border: 5px var(--mushroom-dex-border) solid;
-  box-shadow: 1px 3px 6px 1px #000;
+  margin-top: 5px;
+  padding: 0;
 }
 
 /* basic styling for mushroom buttons */
 .mushroom-list-button {
   width: 100%;
   margin: 8px 0;
-  color: #fff;
 	text-align: center;
 	letter-spacing: 1px;
   position: relative;
@@ -107,13 +127,16 @@ span {
 /* top most layer of button  */
 .front {
   display: block;
-  font-family: var(--font-style), sans-serif;
-  position: relative;
-  padding: 8px 20px;
-  border-radius: 10px;
-  font-size: 1.25rem;
-  color: white;
+  color: var(--text-color);
+  font-size: 1rem;
   background: var(--button-color);
+  font-family: var(--secondary-style), sans-serif;
+  font-weight: var(--font-weight-600);
+  text-align: left;
+  position: relative;
+  padding: 8px 15px;
+  border: .1px solid #6e7f70;
+  border-radius: 10px;
   will-change: transform;
   transform: translateY(-4px);
   transition:
@@ -155,4 +178,25 @@ span {
 
 .mushroom-list-button:focus:not(:focus-visible) {
   outline: none;
+}
+
+/* ======================================
+    screens larger than 750px
+  =======================================*/
+@media all and (min-width: 700px) {
+  .mushroom-list{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    margin-top: 10px;
+  }
+
+  .mushroom-list-button {
+    margin: 0;
+  }
+
+  .mushroom-list-button:last-child {
+    grid-column: 1 / 2; /* child should be in 3rd column . Long hand: grid-column-start: 3; grid-column-end: 1; */
+
+  }
 }
