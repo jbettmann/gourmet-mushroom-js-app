@@ -101,7 +101,22 @@ let mushroomRepo = (function() {
     listItem.appendChild(button);
     mushroomListItems.appendChild(listItem);
 
-  }
+    // Event Listener function to listen for 'click' on <button>, than console log mushroom name of button clicked
+    buttonEventClick(button, mushroomName);
+  };
+
+ // Event listener for 'click' and console logs name of object clicked.
+  // parameter names do not matter, just as long as the match each other in function
+ function buttonEventClick(button, mushroom) {
+    return button.addEventListener('click', function() {
+      return showDetails(mushroom);
+    })
+  };
+
+  // function logs name of mushroom to console
+  function showDetails(mushroom) {
+    console.log(mushroom);
+  };
 
   // filters .mushroomList array by 'name' key
   function searchName(name) {
@@ -119,7 +134,9 @@ let mushroomRepo = (function() {
     getAll: getAll,
     add: add,
     searchName: searchName,
-    addListItem: addListItem
+    addListItem: addListItem,
+    showDetails: showDetails,
+    buttonEventClick: buttonEventClick
   };
 })();
 
