@@ -70,19 +70,31 @@ let mushroomRepo = (function() {
     }
   };
 
+  // adds list items to ul
   function addListItem(mushroomName) {
-
+    // delaries variable
     let mushroomListItems = document.querySelector('ul');
+    // creates list items
     let listItem = document.createElement('li');
+
+    // creates buttons for list
     let button = document.createElement('button');
+    // creates bottom layer for button styling
     let spanShadow = document.createElement('span');
+    // creates middle layer for button styling
     let spanEdge = document.createElement('span');
+    // creates front layer of button for styling
     let spanFront = document.createElement('span');
+    // sets text of button to mushroom name
     spanFront.innerText = mushroomName.name;
+
+    // adds classes to selected span elements
     spanShadow.classList.add('shadow');
     spanEdge.classList.add('edge');
     spanFront.classList.add('front');
     button.classList.add('mushroom-list-button');
+
+    // appends (attaches) passed elements to attached element
     button.appendChild(spanShadow);
     button.appendChild(spanEdge);
     button.appendChild(spanFront);
@@ -102,7 +114,6 @@ let mushroomRepo = (function() {
     return findName;
   };
 
-
   // objects being defined
   return {
     getAll: getAll,
@@ -112,7 +123,7 @@ let mushroomRepo = (function() {
   };
 })();
 
-// Executes an example of creating an IIFE (mushroomRepo) and implements methodes (getAll()) to iterate over mushroomList and print array
+// Executes an IIFE (mushroomRepo) and implements methodes (getAll()) to iterate over mushroomList and print array
 mushroomRepo.getAll().forEach(function(list) {
   return mushroomRepo.addListItem(list);
 });
