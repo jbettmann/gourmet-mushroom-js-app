@@ -26,7 +26,6 @@
 
 body {
   width: 100vw;
-  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -46,8 +45,10 @@ h1 {
   padding-left: 5px;
 }
 
-.mushroomDex {
+.pokemonDex {
   width: 40%;
+  height: 100%;
+  margin: 10px auto;
   min-width: 200px;
   max-width: 500px;
   padding: 20px 15px;
@@ -67,14 +68,14 @@ h1 {
     1px -.5px 6px 1px #808080;
 }
 
-.mushroom-list {
+.pokemon-list {
   list-style: none;
   margin-top: 5px;
   padding: 0;
 }
 
 /* basic styling for mushroom buttons */
-.mushroom-list-button {
+.pokemon-list-button {
   width: 100%;
   margin: 8px 0;
 	text-align: center;
@@ -132,6 +133,7 @@ h1 {
   background: var(--button-color);
   font-family: var(--secondary-style), sans-serif;
   font-weight: var(--font-weight-600);
+  text-transform: capitalize;
   text-align: left;
   position: relative;
   padding: 8px 15px;
@@ -145,12 +147,12 @@ h1 {
     cubic-bezier(.3, .7, .4, 1);
 }
 
-.mushroom-list-button:hover {
+.pokemon-list-button:hover {
   transition: filter 250ms;
   filter: brightness(110%);
 }
 
-.mushroom-list-button:hover .front {
+.pokemon-list-button:hover .front {
   transform: translateY(-5px);
   transition:
     transform
@@ -158,12 +160,12 @@ h1 {
     cubic-bezier(.3, .7, .4, 1.5);
 }
 
-.mushroom-list-button:active .front {
+.pokemon-list-button:active .front {
   transform: translateY(-2px);
   transition: transform 34ms;
 }
 
-.mushroom-list-button:hover .shadow {
+.pokemon-list-button:hover .shadow {
   transform: translateY(4px);
   transition:
     transform
@@ -171,12 +173,12 @@ h1 {
     cubic-bezier(.3, .7, .4, 1.5);
 }
 
-.mushroom-list-button:active .shadow {
+.pokemon-list-button:active .shadow {
   transform: translateY(1px);
   transition: transform 34ms;
 }
 
-.mushroom-list-button:focus:not(:focus-visible) {
+.pokemon-list-button:focus:not(:focus-visible) {
   outline: none;
 }
 
@@ -184,18 +186,18 @@ h1 {
     screens larger than 750px
   =======================================*/
 @media all and (min-width: 700px) {
-  .mushroom-list{
+  .pokemon-list{
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 10px;
     margin-top: 10px;
   }
 
-  .mushroom-list-button {
+  .pokemon-list-button {
     margin: 0;
   }
 
-  .mushroom-list-button:last-child {
+  .pokemon-list-button:last-child {
     grid-column: 1 / 2; /* child should be in 3rd column . Long hand: grid-column-start: 3; grid-column-end: 1; */
 
   }
