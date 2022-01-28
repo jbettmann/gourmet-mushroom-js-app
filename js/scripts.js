@@ -3,14 +3,13 @@ let pokemonRepo = (function() {
   let pokemonList = [];
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
-  // accesses mushroomList array
+  // accesses pokemonList array
   function getAll() {
-    return mushroomList;
+    return pokemonList;
   }
 
-  // adds new mushroom item to mushroomList array
+  // adds new pokemon item to pokemonList array
   function add(item) {
-
     // checks item is an object in order to be summited
     if (typeof item === 'object') {
 
@@ -31,9 +30,9 @@ let pokemonRepo = (function() {
   };
 
   // adds list items to ul
-  function addListItem(mushroomName) {
+  function addListItem(pokemonName) {
     // delaries variable
-    let mushroomListItems = document.querySelector('ul');
+    let pokemonListItems = document.querySelector('ul');
     // creates list items
     let listItem = document.createElement('li');
 
@@ -45,31 +44,31 @@ let pokemonRepo = (function() {
     let spanEdge = document.createElement('span');
     // creates front layer of button for styling
     let spanFront = document.createElement('span');
-    // sets text of button to mushroom name
-    spanFront.innerText = mushroomName.name;
+    // sets text of button to pokemon name
+    spanFront.innerText = pokemonName.name;
 
     // adds classes to selected span elements
     spanShadow.classList.add('shadow');
     spanEdge.classList.add('edge');
     spanFront.classList.add('front');
-    button.classList.add('mushroom-list-button');
+    button.classList.add('pokemon-list-button');
 
     // appends (attaches) passed elements to attached element
     button.appendChild(spanShadow);
     button.appendChild(spanEdge);
     button.appendChild(spanFront);
     listItem.appendChild(button);
-    mushroomListItems.appendChild(listItem);
+    pokemonListItems.appendChild(listItem);
 
-    // Event Listener function to listen for 'click' on <button>, than console log mushroom name of button clicked
-    buttonEventClick(button, mushroomName);
+    // Event Listener function to listen for 'click' on <button>, than console log pokemon name of button clicked
+    buttonEventClick(button, pokemonName);
   };
 
  // Event listener for 'click' and console logs name of object clicked.
   // parameter names do not matter, just as long as the match each other in function
- function buttonEventClick(button, mushroom) {
+ function buttonEventClick(button, pokemon) {
     return button.addEventListener('click', function() {
-      return showDetails(mushroom);
+      return showDetails(pokemon);
     })
   };
 
@@ -78,14 +77,14 @@ let pokemonRepo = (function() {
     console.log(mushroom);
   };
 
-  // filters .mushroomList array by 'name' key
+  // filters .pokemonList array by 'name' key
   function searchName(name) {
     // assign the filter function to variable 'findName'
-    var findName = mushroomList.filter((mushroom) => {
-      // returns 'true' if argument is equal to mushroomList.name is equal
-      return mushroom.name === name;
+    var findName = pokemonList.filter((pokemon) => {
+      // returns 'true' if argument is equal to pokemonList.name is equal
+      return pokemon.name === name;
     });
-    // returns 'findName' varable to 'searchName' function with new array if mushroom.name === name
+    // returns 'findName' varable to 'searchName' function with new array if pokemon.name === name
     return findName;
   };
 
