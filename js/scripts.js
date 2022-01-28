@@ -1,4 +1,7 @@
 //  IIFE for pokemonList to avoid accidentally accessing the Global state
+let pokemonRepo = (function() {
+  let pokemonList = [];
+  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
   // accesses mushroomList array
   function getAll() {
