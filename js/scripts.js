@@ -11,21 +11,12 @@ let pokemonRepo = (function() {
   // adds new pokemon item to pokemonList array
   function add(item) {
     // checks item is an object in order to be summited
-    if (typeof item === 'object') {
-
-      //  checks item has identical keys in order to be summited. If so, alerts that new mushroom was found!
-      if (Object.keys(mushroomList[0]).every(key => key in item)) {
-        alert(`You have found a new mushroom! ${item.name} has been added to your list.`)
-        mushroomList.push(item);
-
-        // If not all keys submited, alerts to double check all data is entered.
-      } else {
-        alert(`The data for the new mushroom you found isn't complete. Please make sure you have no missing fields.`);
-      }
-    }
-    //  If no match, alerts that data is not correct data type.
-    else {
-      alert(`${item.name} is not a vailed mushroom. Please check to make sure your mushroom is an object!`);
+    if (typeof item === 'object' && 'name' in item) {
+      // alerts that new pokemon was found!
+      pokemonList.push(item);
+        // If not valid object, alerts to double check pokemon is an object.
+    } else {
+      alert(`${item.name} is not a vailed pokemon. Please check to make sure your mushroom is an object!`);
     }
   };
 
