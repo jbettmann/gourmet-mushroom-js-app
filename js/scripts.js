@@ -126,6 +126,8 @@ let pokemonRepo = (function() {
     getAll: getAll,
     add: add,
     searchName: searchName,
+    loadList: loadList,
+    loadDetails: loadDetails,
     addListItem: addListItem,
     showDetails: showDetails,
     buttonEventClick: buttonEventClick
