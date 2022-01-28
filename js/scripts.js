@@ -134,7 +134,10 @@ let pokemonRepo = (function() {
   };
 })();
 
-// Executes an IIFE (mushroomRepo) and implements methodes (getAll()) to iterate over mushroomList and print array
-mushroomRepo.getAll().forEach(function(list) {
-  return mushroomRepo.addListItem(list);
+// fetches data from external API to show pokemon data
+pokemonRepo.loadList().then(function() {
+  // Executes an IIFE (mushroomRepo) and implements methodes (getAll()) to iterate over mushroomList and print array
+  pokemonRepo.getAll().forEach(function(list) {
+    return pokemonRepo.addListItem(list);
+  });
 });
