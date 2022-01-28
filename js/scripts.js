@@ -85,12 +85,12 @@ let pokemonRepo = (function() {
   function loadList() {
     // make a request/fetches to API for data
     return fetch(apiUrl).then(function (response) {
-      // returns a promise
+      // returns a JSON
       return response.json();
     }).then(function (json) {
       // .results come frome the pokemon api url. Open url and find the "results" at top of page
       json.results.forEach(function (item) {
-        // creates pokemon object from external API
+        // creates pokemon object with key-value pair from external API
         let pokemon = {
           name: item.name,
           detailsUrl: item.url
@@ -98,21 +98,22 @@ let pokemonRepo = (function() {
         // adds pokemon to pokemonList via add() fucntion
         add(pokemon);
       });
-      // catchs any errors
+      // catches any errors
     }).catch(function (e) {
       console.error(e);
     });
   }
 
-  // loads data from pokemon api and defines objects with keys and values
+  // loads data from pokemon api and defines objects with key-value
   function loadDetails(item) {
     // .detailUrl refers to variable defined above in .loadList function
     let url = item.detailsUrl;
     return fetch(url).then(function (respones) {
       return respones.json();
-      // lets key names and values for inside detailUrl link
+      // gets key names and values for inside detailUrl link
     }).then(function (details) {
-      // .sprites referes to image in pokemon api URL
+      // item refers to the parameter set above. imageUrl is made up, can be what you want it to be.
+      // .sprites referes to image source in pokemon api URL
       item.imageUrl = details.sprites.front_default;
       item.height = details.height;
       item.types = details.types;
