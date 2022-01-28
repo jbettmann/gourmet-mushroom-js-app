@@ -63,10 +63,12 @@ let pokemonRepo = (function() {
     })
   };
 
-  // function logs name of mushroom to console
-  function showDetails(mushroom) {
-    console.log(mushroom);
-  };
+  // function logs name of pokemon to console
+  function showDetails(pokemon) {
+    loadDetails(pokemon).then(function () {
+    console.log(pokemon);
+    });
+  }
 
   // filters .pokemonList array by 'name' key
   function searchName(name) {
