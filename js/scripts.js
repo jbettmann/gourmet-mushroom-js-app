@@ -81,6 +81,46 @@ let pokemonRepo = (function() {
     return findName;
   };
 
+  // Function Loads pokemon details from external API
+  function loadList() {
+    // make a request/fetches to API for data
+    return fetch(apiUrl).then(function (response) {
+      // returns a promise
+      return response.json();
+    }).then(function (json) {
+      // .results come frome the pokemon api url. Open url and find the "results" at top of page
+      json.results.forEach(function (item) {
+        // creates pokemon object from external API
+        let pokemon = {
+          name: item.name,
+          detailsUrl: item.url
+        };
+        // adds pokemon to pokemonList via add() fucntion
+        add(pokemon);
+      });
+      // catchs any errors
+    }).catch(function (e) {
+      console.error(e);
+    });
+  }
+
+  // loads data from pokemon api and defines objects with keys and values
+  function loadDetails(item) {
+    // .detailUrl refers to variable defined above in .loadList function
+    let url = item.detailsUrl;
+    return fetch(url).then(function (respones) {
+      return respones.json();
+      // lets key names and values for inside detailUrl link
+    }).then(function (details) {
+      // .sprites referes to image in pokemon api URL
+      item.imageUrl = details.sprites.front_default;
+      item.height = details.height;
+      item.types = details.types;
+    }).catch(function (e) {
+      console.error(e);
+    });
+  }
+
   // objects being defined
   return {
     getAll: getAll,
