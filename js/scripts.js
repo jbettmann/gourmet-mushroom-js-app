@@ -164,7 +164,15 @@ let pokemonRepo = (function() {
       // .sprites referes to image source in pokemon api URL
       item.imageUrl = details.sprites.front_default;
       item.height = details.height;
-      item.types = details.types;
+      // create an empty array for pokemon types
+      item.types = [];
+            // run a loop over types to and sets typeDetails to types via API path
+            for (let i = 0; i < details.types.length; i++) {
+                let typeDetails = details.types[i].type.name;
+                // pushes typeDetails to item.types array.
+                // Also sets first letter of each type to uppercase with toUpperCass and .substring
+                item.types.push(typeDetails[0].toUpperCase() + typeDetails.substring(1));
+            }
     }).catch(function (e) {
       console.error(e);
     });
