@@ -205,6 +205,7 @@ let pokemonRepo = (function() {
     addListItem: addListItem,
     showDetails: showDetails,
     buttonEventClick: buttonEventClick,
+    showModal: showModal
   };
 })();
 
