@@ -77,6 +77,10 @@ h1 {
   max-width: 500px;
 }
 
+.modal_inside {
+  width: 50%;
+  text-align: center;
+  margin: 0 auto;
 }
 
 .modal-close {
