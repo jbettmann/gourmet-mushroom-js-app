@@ -113,6 +113,9 @@ let pokemonRepo = (function() {
     modalContainer.classList.add('is-visible');
   }
 
+  // hides modal by removing 'is-visible' class from modalContainer
+  function hideModal() {
+      modalContainer.classList.remove('is-visible');
   }
 
   // filters .pokemonList array by 'name' key
