@@ -64,8 +64,20 @@ let pokemonRepo = (function() {
     })
   };
 
-  // function logs name of pokemon to console
+  // loads detail of pokemon in modal
   function showDetails(pokemon) {
+    loadDetails(pokemon).then(function() {
+        showModal(pokemon);
+      });
+  }
+
+  function showModal(pokemon) {
+    // clears modal so only modal clicked on shows and not clicked modals and previous clickd modals
+    modalContainer.innerHTML = '';
+
+    // creates div for modal in modalContainer
+    let modalInside = document.createElement('div');
+    modalInside.classList.add('modal_inside');
 
     let modal = document.createElement('div');
     modal.classList.add('modal');
@@ -80,29 +92,27 @@ let pokemonRepo = (function() {
     titleElement.innerText = pokemon.name;
 
     let contentElement = document.createElement('p');
-    contentElement.innerText = pokemon.height;
+    contentElement.innerText = `Height: ${pokemon.height}`;
+
+    let typesElement = document.createElement('p');
+    let pokemonTypes = pokemon.types;
+    typesElement.innerText = `Type: ${pokemonTypes.join(', ')}`;
     // Create an <img> element
     let myImage = document.createElement('img');
-    myImage.scr = pokemon.imageUrl;
+    myImage.src = pokemon.imageUrl;
 
-    // setting `src` property to set the actual element's `src` attribute
-    // this also works on <img> elements selected by querySelector() method, it is not specific for <img> elements created with createElement() methods
 
+    modalInside.appendChild(myImage);
+    modalInside.appendChild(titleElement);
+    modalInside.appendChild(contentElement);
+    modalInside.appendChild(typesElement);
     modal.appendChild(closeButtonElement);
-    modal.appendChild(myImage);
-    modal.appendChild(titleElement);
-    modal.appendChild(contentElement);
+    modal.appendChild(modalInside);
     modalContainer.appendChild(modal);
 
     modalContainer.classList.add('is-visible');
+  }
 
-    loadDetails(pokemon).then(function() {
-      console.log(pokemon);
-    });
-
-    function hideModal() {
-        modalContainer.classList.remove('is-visible');
-      }
   }
 
   // filters .pokemonList array by 'name' key
