@@ -178,7 +178,22 @@ let pokemonRepo = (function() {
     });
   }
 
-
+  // adds event listener to modal above in showDetails to close when "escape" key is presed
+  window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
+        hideModal();
+      }
+    });
+  // adds event listener to modal above in showDetails to close when click
+  // specifically happens outside of modal or in modalContainer
+  modalContainer.addEventListener('click', (e) => {
+      // Since this is also triggered when clicking INSIDE the modal container,
+      // We only want to close if the user clicks directly on the overlay
+      let target = e.target;
+      if (target === modalContainer) {
+        hideModal();
+      }
+    });
 
   // objects being defined
   return {
