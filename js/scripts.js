@@ -2,6 +2,7 @@
 let pokemonRepo = (function() {
   let pokemonList = [];
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+  let modalContainer = document.querySelector('#modal-container');
 
   // accesses pokemonList array
   function getAll() {
@@ -65,9 +66,44 @@ let pokemonRepo = (function() {
 
   // function logs name of pokemon to console
   function showDetails(pokemon) {
+
+    let modal = document.createElement('div');
+    modal.classList.add('modal');
+
+    // Add the new modal content
+    let closeButtonElement = document.createElement('button');
+    closeButtonElement.classList.add('modal-close');
+    closeButtonElement.innerText = 'Close';
+    closeButtonElement.addEventListener('click', hideModal);
+
+    let titleElement = document.createElement('h1');
+    titleElement.innerText = pokemon.name;
+
+    let contentElement = document.createElement('p');
+    contentElement.innerText = pokemon.height;
+    // Create an <img> element
+    let myImage = document.createElement('img');
+
+    // setting `src` property to set the actual element's `src` attribute
+    // this also works on <img> elements selected by querySelector() method, it is not specific for <img> elements created with createElement() methods
+    myImage.src = pokemon.sprites.front_default;
+
+
+    modal.appendChild(myImage);
+    modal.appendChild(closeButtonElement);
+    modal.appendChild(titleElement);
+    modal.appendChild(contentElement);
+    modalContainer.appendChild(modal);
+
+    modalContainer.classList.add('is-visible');
+
     loadDetails(pokemon).then(function () {
     console.log(pokemon);
     });
+
+    function hideModal() {
+        modalContainer.classList.remove('is-visible');
+      }
   }
 
   // filters .pokemonList array by 'name' key
@@ -121,6 +157,8 @@ let pokemonRepo = (function() {
       console.error(e);
     });
   }
+
+
 
   // objects being defined
   return {
