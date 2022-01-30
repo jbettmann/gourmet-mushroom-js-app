@@ -169,7 +169,7 @@ let pokemonRepo = (function() {
     loadDetails: loadDetails,
     addListItem: addListItem,
     showDetails: showDetails,
-    buttonEventClick: buttonEventClick
+    buttonEventClick: buttonEventClick,
   };
 })();
 
