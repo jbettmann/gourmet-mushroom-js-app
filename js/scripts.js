@@ -73,7 +73,7 @@ let pokemonRepo = (function() {
     // Add the new modal content
     let closeButtonElement = document.createElement('button');
     closeButtonElement.classList.add('modal-close');
-    closeButtonElement.innerText = 'Close';
+    closeButtonElement.innerText = 'X';
     closeButtonElement.addEventListener('click', hideModal);
 
     let titleElement = document.createElement('h1');
@@ -83,22 +83,21 @@ let pokemonRepo = (function() {
     contentElement.innerText = pokemon.height;
     // Create an <img> element
     let myImage = document.createElement('img');
+    myImage.scr = pokemon.imageUrl;
 
     // setting `src` property to set the actual element's `src` attribute
     // this also works on <img> elements selected by querySelector() method, it is not specific for <img> elements created with createElement() methods
-    myImage.src = pokemon.sprites.front_default;
 
-
-    modal.appendChild(myImage);
     modal.appendChild(closeButtonElement);
+    modal.appendChild(myImage);
     modal.appendChild(titleElement);
     modal.appendChild(contentElement);
     modalContainer.appendChild(modal);
 
     modalContainer.classList.add('is-visible');
 
-    loadDetails(pokemon).then(function () {
-    console.log(pokemon);
+    loadDetails(pokemon).then(function() {
+      console.log(pokemon);
     });
 
     function hideModal() {
