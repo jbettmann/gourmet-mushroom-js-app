@@ -93,10 +93,14 @@ h1 {
 }
 
 .modal h1 {
+  text-transform: capitalize;
+  font-family: var(--secondary-style), sans-serif;
+  font-weight: var(--font-weight-600);
   margin-top: 0;
 }
 
 .modal p {
+  font-family: var(--secondary-style);
   margin-bottom: 0;
 }
 
