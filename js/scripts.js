@@ -187,9 +187,11 @@ let pokemonRepo = (function() {
   let touchendY = 0;
 
   let gestureZone = document.getElementById('modal-container');
+  let pokemonSwipe = document.querySelector('li');
 
   function handleGesture() {
       if (touchendX <= touchstartX) {
+        return pokemonSwipe.nextElementSibling;
         console.log('Swiped left');
       }
 
@@ -242,7 +244,8 @@ let pokemonRepo = (function() {
     addListItem: addListItem,
     showDetails: showDetails,
     buttonEventClick: buttonEventClick,
-    showModal: showModal
+    showModal: showModal,
+    handleGesture: handleGesture
   };
 })();
 
