@@ -44,6 +44,14 @@ let pokemonRepo = (function() {
     spanEdge.classList.add('edge');
     spanFront.classList.add('front');
     button.classList.add('pokemon-list-button');
+    // applys 'group-list-item' class (Bootstrap class name) to 'li'
+    listItem.classList.add('group-list-item');
+    listItem.classList.add('col');
+
+    let image = $(
+        '<img class="card-img-top" alt="Card image" style="width:20%" />'
+      );
+    image.attr("src", pokemonName.imageUrl);
 
     // appends (attaches) passed elements to attached element
     button.appendChild(spanShadow);
