@@ -1,6 +1,6 @@
 
 :root {
-  --background: #fff; /* White */
+  --background: #9bc688; /* White */
   --secondary-color: #e1d4bf; /* dusty brown */
   --text-color: #000; /* black */
   --button-color: #DCFFE1; /* mint green */
@@ -26,7 +26,6 @@
 
 body {
   width: 100vw;
-  display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -37,12 +36,19 @@ body {
   font-weight: var(--font-weight-400);
 }
 
-h1 {
+.pokeDex_h1 {
   font-family: var(--secondary-style);
   font-size: 16px;
   font-weight: var(--font-weight-300);
   margin: 0;
   padding-left: 5px;
+}
+
+h1 {
+  font-family: var(--secondary-style);
+  font-size: 25px;
+  font-weight: var(--font-weight-300);
+  padding-top: 20px;
 }
 
 #modal-container {
@@ -67,7 +73,7 @@ h1 {
   text-align: center;
 }
 
-.modal {
+.modal-content {
   margin: auto;
   text-align: center;
   display: inline-block;
@@ -105,11 +111,10 @@ h1 {
 }
 
 .pokemonDex {
-  width: 40%;
+  width: 70%;
   height: 100%;
-  margin: 10px auto;
+  margin: 60px auto;
   min-width: 200px;
-  max-width: 500px;
   padding: 20px 15px;
   background: linear-gradient(
     to left,
@@ -133,7 +138,7 @@ h1 {
   padding: 0;
 }
 
-/* basic styling for mushroom buttons */
+/* basic styling for pokemon buttons */
 .pokemon-list-button {
   width: 100%;
   margin: 8px 0;
