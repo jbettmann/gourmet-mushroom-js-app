@@ -23,6 +23,7 @@ let pokemonRepo = (function() {
 
   // adds list items to ul
   function addListItem(pokemonName) {
+    // loadDetails(pokemonName).then(function() {
     // delaries variable
     let pokemonListItems = document.querySelector('ul');
     // creates list items
@@ -48,9 +49,7 @@ let pokemonRepo = (function() {
     listItem.classList.add('group-list-item');
     listItem.classList.add('col');
 
-    let image = $(
-        '<img class="card-img-top" alt="Card image" style="width:20%" />'
-      );
+    let image = $('<img class="card-img-top" alt="Card image" style="width:20%" />');
     image.attr("src", pokemonName.imageUrl);
 
     // appends (attaches) passed elements to attached element
@@ -58,12 +57,12 @@ let pokemonRepo = (function() {
     button.append(spanEdge);
     button.append(spanFront);
     listItem.append(button);
-    listItem.append(image); // would not load. showed as [object Object]
+    // listItem.append(image); // would not load. showed as [object Object]
     pokemonListItems.append(listItem);
 
     // Event Listener function to listen for 'click' on <button>, than console log pokemon name of button clicked
     buttonEventClick(button, pokemonName);
-
+    // })
   };
 
  // Event listener for 'click' and console logs name of object clicked.
@@ -78,7 +77,7 @@ let pokemonRepo = (function() {
   function showDetails(pokemon) {
     loadDetails(pokemon).then(function() {
         showModal(pokemon);
-      });
+    });
   }
 
   function showModal(pokemon) {
@@ -107,7 +106,7 @@ let pokemonRepo = (function() {
     modalBody.append(pokemonHeight);
     modalBody.append(pokemonTypes);
 
-     $('#modal-container').modal();
+    $('#modal-container').modal();
 
   }
 
