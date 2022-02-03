@@ -230,6 +230,10 @@ let pokemonRepo = (function() {
     });
   });
 
+  // removes loading icon (div id="loading") once page has loaded
+  $(window).on('load', function () {
+     $('#loading').hide();
+   })
 
   // adds event listener to modal above in showDetails to close when "escape" key is presed
   window.addEventListener('keydown', (e) => {
