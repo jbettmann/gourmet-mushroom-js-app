@@ -54,11 +54,12 @@ let pokemonRepo = (function() {
     image.attr("src", pokemonName.imageUrl);
 
     // appends (attaches) passed elements to attached element
-    button.appendChild(spanShadow);
-    button.appendChild(spanEdge);
-    button.appendChild(spanFront);
-    listItem.appendChild(button);
-    pokemonListItems.appendChild(listItem);
+    button.append(spanShadow);
+    button.append(spanEdge);
+    button.append(spanFront);
+    listItem.append(button);
+    listItem.append(image); // would not load. showed as [object Object]
+    pokemonListItems.append(listItem);
 
     // Event Listener function to listen for 'click' on <button>, than console log pokemon name of button clicked
     buttonEventClick(button, pokemonName);
