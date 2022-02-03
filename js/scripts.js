@@ -63,6 +63,7 @@ let pokemonRepo = (function() {
 
     // Event Listener function to listen for 'click' on <button>, than console log pokemon name of button clicked
     buttonEventClick(button, pokemonName);
+
   };
 
  // Event listener for 'click' and console logs name of object clicked.
@@ -81,46 +82,77 @@ let pokemonRepo = (function() {
   }
 
   function showModal(pokemon) {
+
+    modalTitle = $('.modal-title');
+    modalBody= $('.modal-body');
+
+    modalBody.empty();
+    modalTitle.empty();
+
+    //  assign pokemon name to pokemonTitle
+    let pokemonTitle = $('<h1>' + pokemon.name + '</h1>');
+    //  assign pokemon image scr to pokemonIamge
+    let pokemonImage = $(`<img class="modal-img" style="width:50%">`);
+    //  attach pokemon image src to pokemonImage
+    pokemonImage.attr("src", pokemon.imageUrl);
+    //  assing pokemon height to pokemonHeight
+    let pokemonHeight = $('<p>' + `Height: ${pokemon.height}` + '<p>');
+    //  attach pokemon types \ to pokemonType
+    let pokemonTypes = $('<p>' + `Type(s): ${pokemon.types.join(', ')}` + '<p>');
+
+    // attach pokemonName to modalTitle (pokemonName becomes child element on modalTitle)
+    modalTitle.append(pokemonTitle);
+    // attach pokemon detals to modalBody (pokemon details becomes child element on modalBody)
+    modalBody.append(pokemonImage);
+    modalBody.append(pokemonHeight);
+    modalBody.append(pokemonTypes);
+
+     $('#modal-container').modal();
+
+  }
+
+
+    // OLD MODAL - BUILT FROM SCRATCH - VANILLA JAVASCRIPT
     // clears modal so only modal clicked on shows and not clicked modals and previous clickd modals
-    modalContainer.innerHTML = '';
+    // modalContainer.innerHTML = '';
 
     // creates div for modal in modalContainer
-    let modalInside = document.createElement('div');
-    modalInside.classList.add('modal_inside');
+    // let modalInside = document.createElement('div');
+    // modalInside.classList.add('modal_inside');
 
-    let modal = document.createElement('div');
-    modal.classList.add('modal');
+    // let modal = document.createElement('div');
+    // modal.classList.add('modal');
 
     // Add the new modal content
-    let closeButtonElement = document.createElement('button');
-    closeButtonElement.classList.add('modal-close');
-    closeButtonElement.innerText = 'X';
-    closeButtonElement.addEventListener('click', hideModal);
+    // let closeButtonElement = document.createElement('button');
+    // closeButtonElement.classList.add('modal-close');
+    // closeButtonElement.innerText = 'X';
+    // closeButtonElement.addEventListener('click', hideModal);
 
-    let titleElement = document.createElement('h1');
-    titleElement.innerText = pokemon.name;
+    // let titleElement = document.createElement('h1');
+    // titleElement.innerText = pokemon.name;
 
-    let contentElement = document.createElement('p');
-    contentElement.innerText = `Height: ${pokemon.height}`;
-
-    let typesElement = document.createElement('p');
-    let pokemonTypes = pokemon.types;
-    typesElement.innerText = `Type: ${pokemonTypes.join(', ')}`;
+    // let contentElement = document.createElement('p');
+    // contentElement.innerText = `Height: ${pokemon.height}`;
+    //
+    // let typesElement = document.createElement('p');
+    // let pokemonTypes = pokemon.types;
+    // typesElement.innerText = `Type: ${pokemonTypes.join(', ')}`;
     // Create an <img> element
-    let myImage = document.createElement('img');
-    myImage.src = pokemon.imageUrl;
+    // let myImage = document.createElement('img');
+    // myImage.src = pokemon.imageUrl;
 
 
-    modalInside.appendChild(myImage);
-    modalInside.appendChild(titleElement);
-    modalInside.appendChild(contentElement);
-    modalInside.appendChild(typesElement);
-    modal.appendChild(closeButtonElement);
-    modal.appendChild(modalInside);
-    modalContainer.appendChild(modal);
+    // modalInside.appendChild(myImage);
+    // modalInside.appendChild(titleElement);
+    // modalInside.appendChild(contentElement);
+    // modalInside.appendChild(typesElement);
+    // modal.appendChild(closeButtonElement);
+    // modal.appendChild(modalInside);
+    // modalContainer.appendChild(modal);
+    //
+    // modalContainer.classList.add('is-visible');
 
-    modalContainer.classList.add('is-visible');
-  }
 
   // hides modal by removing 'is-visible' class from modalContainer
   function hideModal() {
@@ -187,44 +219,6 @@ let pokemonRepo = (function() {
     });
   }
 
-//=================================================================
-//          Attempt at adding a swipe touch event
-//=================================================================
-  let touchstartX = 0;
-  let touchstartY = 0;
-  let touchendX = 0;
-  let touchendY = 0;
-
-  let gestureZone = document.getElementById('modal-container');
-  let pokemonSwipe = document.querySelector('li');
-
-  function handleGesture() {
-      if (touchendX <= touchstartX) {
-        return pokemonSwipe.nextElementSibling;
-        console.log('Swiped left');
-      }
-
-      if (touchendX >= touchstartX) {
-          console.log('Swiped right');
-      }
-
-      if (touchendY === touchstartY) {
-          console.log('Tap');
-      }
-  }
-
-  gestureZone.addEventListener('touchstart', (event) => {
-      touchstartX = event.changedTouches[0].screenX;
-      touchstartY = event.changedTouches[0].screenY;
-  }, false);
-
-  gestureZone.addEventListener('touchend', function(event) {
-      touchendX = event.changedTouches[0].screenX;
-      touchendY = event.changedTouches[0].screenY;
-      handleGesture();
-  }, false);
-
-//=========================================================================
 
   // adds event listener to modal above in showDetails to close when "escape" key is presed
   window.addEventListener('keydown', (e) => {
@@ -253,8 +247,7 @@ let pokemonRepo = (function() {
     addListItem: addListItem,
     showDetails: showDetails,
     buttonEventClick: buttonEventClick,
-    showModal: showModal,
-    handleGesture: handleGesture
+    showModal: showModal
   };
 })();
 
