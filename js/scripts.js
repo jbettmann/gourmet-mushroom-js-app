@@ -218,6 +218,18 @@ let pokemonRepo = (function() {
     });
   }
 
+  // searches for pokemon name in search input field on HTML
+  $(document).ready(function(){
+    $(".myInput").on("keyup", function() {
+      // .toLowerCase makes the search case insensitive
+      var value = $(this).val().toLowerCase();
+      // .toggle removes any rows(search items) that do not match
+      $(".pokemon-list li").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+      });
+    });
+  });
+
 
   // adds event listener to modal above in showDetails to close when "escape" key is presed
   window.addEventListener('keydown', (e) => {
