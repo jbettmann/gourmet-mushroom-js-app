@@ -1,7 +1,7 @@
 
 :root {
   --background: #9bc688; /* White */
-  --secondary-color: #e1d4bf; /* dusty brown */
+  --secondary-color: #d9d9d9; /* light gray */
   --text-color: #000; /* black */
   --button-color: #DCFFE1; /* mint green */
   --button-ligher-grad: #6e7f70; /* dark green */
@@ -29,19 +29,48 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-color: var(--background);
+  background-color: var(--button-ligher-grad);
   color: var(--text-color);
   font-family: var(--font-style), sans-serif;
   font-size: var(--font-size);
   font-weight: var(--font-weight-400);
 }
 
-.pokeDex_h1 {
+nav {
+  font-weight: var(--font-weight-600);
+  background-color: var(--button-color);
+  border-bottom: 2px var(--button-ligher-grad) solid;
+}
+
+nav a {
+  font-family: var(--font-style);
+  transition: 0.4s opacity;
+}
+
+nav a:hover {
+  opacity: .7;
+}
+
+h2 {
+  margin: 0;
+}
+
+.pokeDex_h3 {
   font-family: var(--secondary-style);
   font-size: 16px;
   font-weight: var(--font-weight-300);
   margin: 0;
   padding-left: 5px;
+}
+
+.search {
+  justify-content: flex-end;
+  margin: 0;
+  padding: 0;
+}
+
+.myInput {
+  font-family: var(--secondary-style);
 }
 
 h1 {
@@ -55,47 +84,33 @@ h1 {
   display: none;
 }
 
-#modal-container.is-visible {
+.modal {
   position: fixed;
   padding: 20px;
-  box-sizing: border-box;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, .5);
   /* to show it above other content */
-  z-index: 999;
   /* to allow scrolling if the screen is not high enough*/
   overflow: auto;
   /* this is used to center the modal */
-  display: grid;
   text-align: center;
 }
 
 .modal-content {
+  background-color: var(--secondary-color);
   margin: auto;
   text-align: center;
   display: inline-block;
-  background: #fff;
   padding: 15px;
   width: 100%;
   max-width: 500px;
 }
 
-.modal_inside {
-  width: 50%;
-  text-align: center;
-  margin: 0 auto;
-}
-
-.modal-close {
-  float: right;
-  -webkit-appearance: none;
-  border: 0;
-  background: none;
-  color: #000;
-  text-decoration: underline;
+.modal-body {
+  border-radius: .3rem;
+  border: 2px solid var(--button-ligher-grad);
 }
 
 .modal h1 {
@@ -110,10 +125,21 @@ h1 {
   margin-bottom: 0;
 }
 
+.modal-footer {
+  border-top: 0 none;
+  justify-content: center;
+  padding-bottom: .5rem;
+}
+
+.btn {
+  color: #000;
+  background-color: var(--button-color);
+}
+
 .pokemonDex {
   width: 70%;
   height: 100%;
-  margin: 60px auto;
+  margin: 80px auto;
   min-width: 200px;
   padding: 20px 15px;
   background: linear-gradient(
@@ -124,12 +150,8 @@ h1 {
     var(--mushroom-dex-dark-color) 100%
     );
   color: #000;
-  text-align: left;
   border: .1px solid var(--mushroom-dex-dark-color);
   border-radius: 10px;
-  box-shadow:
-    1px 2px 6px 1px #808080,
-    1px -.5px 6px 1px #808080;
 }
 
 .pokemon-list {
@@ -247,9 +269,15 @@ h1 {
 }
 
 /* ======================================
-    screens larger than 750px
+    screens larger than 576px
   =======================================*/
-@media all and (min-width: 700px) {
+@media all and (min-width: 576px) {
+
+  .pokeDex_h3 {
+    padding-top: 20px;
+    float: left;
+  }
+
   .pokemon-list{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -260,9 +288,48 @@ h1 {
   .pokemon-list-button {
     margin: 0;
   }
+}
 
-  .pokemon-list-button:last-child {
-    grid-column: 1 / 2; /* child should be in 3rd column . Long hand: grid-column-start: 3; grid-column-end: 1; */
+/* ======================================
+    screens larger than 700px
+  =======================================*/
+@media all and (min-width: 700px) {
 
+  .pokeDex_h3 {
+    padding-top: 20px;
+    float: left;
+  }
+
+  .pokemon-list{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px;
+    margin-top: 10px;
+  }
+
+  .pokemon-list-button {
+    margin: 0;
+  }
+}
+
+/* ======================================
+    screens larger than 1200px
+  =======================================*/
+@media all and (min-width: 1200px) {
+
+  .pokeDex_h3 {
+    padding-top: 20px;
+    float: left;
+  }
+
+  .pokemon-list{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+    margin-top: 10px;
+  }
+
+  .pokemon-list-button {
+    margin: 0;
   }
 }
