@@ -241,7 +241,7 @@ h1 {
 }
 
 .pokemon-list-button:hover .front {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
   transition:
     transform
     250ms
