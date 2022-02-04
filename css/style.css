@@ -55,6 +55,11 @@ h2 {
   margin: 0;
 }
 
+p {
+  letter-spacing: .08rem;
+  font-weight: var(--font-weight-600);
+}
+
 .pokeDex_h3 {
   font-family: var(--secondary-style);
   font-size: 16px;
@@ -111,6 +116,7 @@ h1 {
 .modal-body {
   border-radius: .3rem;
   border: 2px solid var(--button-ligher-grad);
+  background-color: var(--button-color)
 }
 
 .modal h1 {
