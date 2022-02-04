@@ -237,7 +237,7 @@ h1 {
 
 .pokemon-list-button:hover {
   transition: filter 250ms;
-  filter: brightness(110%);
+  filter: brightness(105%);
 }
 
 .pokemon-list-button:hover .front {
