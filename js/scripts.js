@@ -22,8 +22,8 @@ let pokemonRepo = (function() {
   };
 
   // adds list items to ul
-  function addListItem(pokemonName) {
-    // loadDetails(pokemonName).then(function() {
+  async function addListItem(pokemonName) {
+    console.log(pokemonName);
     // delaries variable
     let pokemonListItems = document.querySelector('ul');
     // creates list items
@@ -37,32 +37,39 @@ let pokemonRepo = (function() {
     let spanEdge = document.createElement('span');
     // creates front layer of button for styling
     let spanFront = document.createElement('span');
+
+    // AJAX request to get image url for each pokemon
+    loadDetails(pokemonName).then(() => {
+      // You mutate the object you pass in. Ideally, you should return a new object that contains the properties you need for this.
+
     // sets text of button to pokemon name
-    spanFront.innerText = pokemonName.name;
+      spanFront.innerText = pokemonName.name;
 
-    // adds classes to selected span elements
-    spanShadow.classList.add('shadow');
-    spanEdge.classList.add('edge');
-    spanFront.classList.add('front');
-    button.classList.add('pokemon-list-button');
-    // applys 'group-list-item' class (Bootstrap class name) to 'li'
-    listItem.classList.add('group-list-item');
-    listItem.classList.add('col');
+      // adds classes to selected span elements
+      spanShadow.classList.add('shadow');
+      spanEdge.classList.add('edge');
+      spanFront.classList.add('front');
+      button.classList.add('pokemon-list-button');
+      // applys 'group-list-item' class (Bootstrap class name) to 'li'
+      listItem.classList.add('group-list-item');
+      listItem.classList.add('col');
 
-    let image = $('<img class="card-img-top" alt="Card image" style="width:20%" />');
-    image.attr("src", pokemonName.imageUrl);
+      let pokemonImage = document.createElement('img');
+      pokemonImage.src = pokemonName.imageUrl;
+      pokemonImage.classList.add('pokemon-image');
 
-    // appends (attaches) passed elements to attached element
-    button.append(spanShadow);
-    button.append(spanEdge);
-    button.append(spanFront);
-    listItem.append(button);
-    // listItem.append(image); // would not load. showed as [object Object]
-    pokemonListItems.append(listItem);
+      // myImg.attr("src", pokemonName.imageUrl);
 
-    // Event Listener function to listen for 'click' on <button>, than console log pokemon name of button clicked
-    buttonEventClick(button, pokemonName);
-    // })
+      // appends (attaches) passed elements to attached element
+      button.append(spanShadow);
+      button.append(spanEdge);
+      spanFront.append(pokemonImage);
+      button.append(spanFront);
+      listItem.append(button);
+      pokemonListItems.append(listItem);
+      // Event Listener function to listen for 'click' on <button>, than console log pokemon name of button clicked
+      buttonEventClick(button, pokemonName);
+      })
   };
 
  // Event listener for 'click' and console logs name of object clicked.
