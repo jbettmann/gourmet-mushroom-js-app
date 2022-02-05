@@ -1,0 +1,469 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 2 version
+*/
+
+
+:root {
+  --background: #9bc688; /* White */
+  --secondary-color: #d9d9d9; /* light gray */
+  --text-color: #000; /* black */
+  --button-color: #DCFFE1; /* mint green */
+  --button-ligher-grad: #6e7f70; /* dark green */
+  --button-dark-grad: #58665a; /* darker green */
+
+  --mushroom-dex-color: #B7B7B7; /* steal gray */
+  --mushroom-dex-dark-color: #a4a4a4; /* dark gray */
+  --mushroom-dex-border: #a8abac; /* dark tan */
+
+  --font-style: 'Alegreya Sans';
+  --secondary-style: 'Titillium Web';
+  --font-size: 16px;
+  --font-weight-300: 300;
+  --font-weight-400: 400;
+  --font-weight-500: 500;
+  --font-weight-600: 600;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; /* Makes all elements fit on screen */
+}
+
+body {
+  width: 100vw;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: var(--button-ligher-grad);
+  color: var(--text-color);
+  font-family: var(--font-style), sans-serif;
+  font-size: var(--font-size);
+  font-weight: var(--font-weight-400);
+}
+
+nav {
+  font-weight: var(--font-weight-600);
+  background-color: var(--button-color);
+  border-bottom: 2px var(--button-ligher-grad) solid;
+}
+
+nav a {
+  font-family: var(--font-style);
+  -webkit-transition: 0.4s opacity;
+  transition: 0.4s opacity;
+}
+
+nav a:hover {
+  opacity: .7;
+}
+
+h2 {
+  margin: 0;
+}
+
+p {
+  letter-spacing: .08rem;
+  font-weight: var(--font-weight-600);
+}
+
+.pokeDex_h3 {
+  font-family: var(--secondary-style);
+  font-size: 16px;
+  font-weight: var(--font-weight-300);
+  margin: 0;
+  padding-left: 5px;
+}
+
+.search {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin: 0;
+  padding: 0;
+}
+
+.myInput {
+  font-family: var(--secondary-style);
+}
+
+h1 {
+  font-family: var(--secondary-style);
+  font-size: 25px;
+  font-weight: var(--font-weight-300);
+  padding-top: 20px;
+}
+
+#modal-container {
+  display: none;
+}
+
+.modal {
+  position: fixed;
+  padding: 20px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* to show it above other content */
+  /* to allow scrolling if the screen is not high enough*/
+  overflow: auto;
+  /* this is used to center the modal */
+  text-align: center;
+}
+
+.modal-content {
+  background-color: var(--secondary-color);
+  margin: auto;
+  text-align: center;
+  display: inline-block;
+  padding: 15px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.modal-body {
+  border-radius: .3rem;
+  border: 2px solid var(--button-ligher-grad);
+  background-color: var(--button-color)
+}
+
+.modal h1 {
+  text-transform: capitalize;
+  font-family: var(--secondary-style), sans-serif;
+  font-weight: var(--font-weight-600);
+  margin-top: 0;
+}
+
+.modal p {
+  font-family: var(--secondary-style);
+  margin-bottom: 0;
+}
+
+.modal-footer {
+  border-top: 0 none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-bottom: .5rem;
+}
+
+.btn {
+  color: #000;
+  background-color: var(--button-color);
+}
+
+.pokemonDex {
+  width: 90%;
+  height: 100%;
+  margin: 80px auto;
+  min-width: 200px;
+  padding: 20px 15px;
+  background: -webkit-gradient(
+    linear,
+    right top, left top,
+    from(var(--mushroom-dex-dark-color)),
+    color-stop(5%, var(--mushroom-dex-color)),
+    color-stop(95%, var(--mushroom-dex-color)),
+    to(var(--mushroom-dex-dark-color))
+    );
+  background: linear-gradient(
+    to left,
+    var(--mushroom-dex-dark-color) 0%,
+    var(--mushroom-dex-color) 5%,
+    var(--mushroom-dex-color) 95%,
+    var(--mushroom-dex-dark-color) 100%
+    );
+  color: #000;
+  border: .1px solid var(--mushroom-dex-dark-color);
+  border-radius: 10px;
+}
+
+.pokemon-list {
+  list-style: none;
+  margin-top: 5px;
+  padding: 0;
+}
+
+/* basic styling for pokemon buttons */
+.pokemon-list-button {
+  width: 100%;
+  margin: 8px 0;
+	text-align: center;
+	letter-spacing: 1px;
+  position: relative;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  outline-offset: 4px;
+  -webkit-transition: -webkit-filter 250ms;
+  transition: -webkit-filter 250ms;
+  transition: filter 250ms;
+  transition: filter 250ms, -webkit-filter 250ms;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none; /* prohibits button text from being selected on iOs */
+  -webkit-tap-highlight-color: transparent; /*removes gray rectangle that flashes when clicked */
+}
+
+/* last or bottom layer of button */
+.shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  background: hsl(0deg 0% 0% / .025);
+  will-change: transform;
+  -webkit-transform: translateY(2px);
+          transform: translateY(2px);
+  -webkit-transition:
+    -webkit-transform
+    600ms
+    cubic-bezier(.3, .7, .4, 1);
+  transition:
+    -webkit-transform
+    600ms
+    cubic-bezier(.3, .7, .4, 1);
+  transition:
+    transform
+    600ms
+    cubic-bezier(.3, .7, .4, 1);
+  transition:
+    transform
+    600ms
+    cubic-bezier(.3, .7, .4, 1), -webkit-transform
+    600ms
+    cubic-bezier(.3, .7, .4, 1);
+}
+
+/* middle layer of button */
+.edge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 11px;
+  background: -webkit-gradient(
+    linear,
+    right top, left top,
+    from(var(--button-dark-grad)),
+    color-stop(8%, var(--button-ligher-grad)),
+    color-stop(92%, var(--button-ligher-grad)),
+    to(var(--button-dark-grad))
+  );
+  background: linear-gradient(
+    to left,
+    var(--button-dark-grad) 0%,
+    var(--button-ligher-grad) 8%,
+    var(--button-ligher-grad) 92%,
+    var(--button-dark-grad) 100%
+  );
+}
+
+/* top most layer of button  */
+.front {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: var(--text-color);
+  font-size: 1rem;
+  background: var(--button-color);
+  font-family: var(--secondary-style), sans-serif;
+  font-weight: var(--font-weight-600);
+  text-transform: capitalize;
+  text-align: left;
+  position: relative;
+  padding: 0;
+  border: .1px solid #6e7f70;
+  border-radius: 10px;
+  will-change: transform;
+  -webkit-transform: translateY(-4px);
+          transform: translateY(-4px);
+  -webkit-transition:
+    -webkit-transform
+    600ms
+    cubic-bezier(.3, .7, .4, 1);
+  transition:
+    -webkit-transform
+    600ms
+    cubic-bezier(.3, .7, .4, 1);
+  transition:
+    transform
+    600ms
+    cubic-bezier(.3, .7, .4, 1);
+  transition:
+    transform
+    600ms
+    cubic-bezier(.3, .7, .4, 1), -webkit-transform
+    600ms
+    cubic-bezier(.3, .7, .4, 1);
+}
+
+.pokemon-list-button:hover {
+  -webkit-transition: -webkit-filter 250ms;
+  transition: -webkit-filter 250ms;
+  transition: filter 250ms;
+  transition: filter 250ms, -webkit-filter 250ms;
+  -webkit-filter: brightness(105%);
+          filter: brightness(105%);
+}
+
+.pokemon-list-button:hover .front {
+  -webkit-transform: translateY(-6px);
+          transform: translateY(-6px);
+  -webkit-transition:
+    -webkit-transform
+    250ms
+    cubic-bezier(.3, .7, .4, 1.5);
+  transition:
+    -webkit-transform
+    250ms
+    cubic-bezier(.3, .7, .4, 1.5);
+  transition:
+    transform
+    250ms
+    cubic-bezier(.3, .7, .4, 1.5);
+  transition:
+    transform
+    250ms
+    cubic-bezier(.3, .7, .4, 1.5), -webkit-transform
+    250ms
+    cubic-bezier(.3, .7, .4, 1.5);
+}
+
+.pokemon-list-button:active .front {
+  -webkit-transform: translateY(-2px);
+          transform: translateY(-2px);
+  -webkit-transition: -webkit-transform 34ms;
+  transition: -webkit-transform 34ms;
+  transition: transform 34ms;
+  transition: transform 34ms, -webkit-transform 34ms;
+}
+
+.pokemon-list-button:hover .shadow {
+  -webkit-transform: translateY(4px);
+          transform: translateY(4px);
+  -webkit-transition:
+    -webkit-transform
+    250ms
+    cubic-bezier(.3, .7, .4, 1.5);
+  transition:
+    -webkit-transform
+    250ms
+    cubic-bezier(.3, .7, .4, 1.5);
+  transition:
+    transform
+    250ms
+    cubic-bezier(.3, .7, .4, 1.5);
+  transition:
+    transform
+    250ms
+    cubic-bezier(.3, .7, .4, 1.5), -webkit-transform
+    250ms
+    cubic-bezier(.3, .7, .4, 1.5);
+}
+
+.pokemon-list-button:active .shadow {
+  -webkit-transform: translateY(1px);
+          transform: translateY(1px);
+  -webkit-transition: -webkit-transform 34ms;
+  transition: -webkit-transform 34ms;
+  transition: transform 34ms;
+  transition: transform 34ms, -webkit-transform 34ms;
+}
+
+.pokemon-list-button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ======================================
+    screens larger than 576px
+  =======================================*/
+@media all and (min-width: 576px) {
+
+  .pokeDex_h3 {
+    padding-top: 20px;
+    float: left;
+  }
+
+  .pokemon-list{
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 10px 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    margin-top: 10px;
+  }
+
+  .pokemon-list-button {
+    margin: 0;
+  }
+}
+
+/* ======================================
+    screens larger than 700px
+  =======================================*/
+@media all and (min-width: 850px) {
+
+  .pokeDex_h3 {
+    padding-top: 20px;
+    float: left;
+  }
+
+  .pokemon-list{
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 10px 1fr 10px 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px;
+    margin-top: 10px;
+  }
+
+  .pokemon-list-button {
+    margin: 0;
+  }
+}
+
+/* ======================================
+    screens larger than 1200px
+  =======================================*/
+@media all and (min-width: 1200px) {
+
+  .pokeDex_h3 {
+    padding-top: 20px;
+    float: left;
+  }
+
+  .pokemon-list{
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 10px 1fr 10px 1fr 10px 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+    margin-top: 10px;
+  }
+
+  .pokemon-list-button {
+    margin: 0;
+  }
+}
