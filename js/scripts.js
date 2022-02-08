@@ -254,15 +254,6 @@ let pokemonRepo = (function() {
     });
   });
 
-  //======= Did not work =========
-  // function resetForms() {
-  //   document.getElementById('myInput').reset();
-  // }
-  //
-  // $(document).ready(function() {
-  //   resetForms();
-  // });
-
   // removes loading icon (div id="loading") once page has loaded
   $(window).on('load', function() {
     $('#loading').hide();
