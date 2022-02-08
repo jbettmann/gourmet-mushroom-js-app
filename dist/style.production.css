@@ -5,21 +5,20 @@
 * Browsers: last 2 version
 */
 
-
 :root {
   --background: #9bc688; /* White */
   --secondary-color: #d9d9d9; /* light gray */
   --text-color: #000; /* black */
-  --button-color: #DCFFE1; /* mint green */
+  --button-color: #dcffe1; /* mint green */
   --button-ligher-grad: #6e7f70; /* dark green */
   --button-dark-grad: #58665a; /* darker green */
 
-  --mushroom-dex-color: #B7B7B7; /* steal gray */
+  --mushroom-dex-color: #b7b7b7; /* steal gray */
   --mushroom-dex-dark-color: #a4a4a4; /* dark gray */
   --mushroom-dex-border: #a8abac; /* dark tan */
 
-  --font-style: 'Alegreya Sans';
-  --secondary-style: 'Titillium Web';
+  --font-style: "Alegreya Sans";
+  --secondary-style: "Titillium Web";
   --font-size: 16px;
   --font-weight-300: 300;
   --font-weight-400: 400;
@@ -29,21 +28,21 @@
 
 * {
   -webkit-box-sizing: border-box;
-          box-sizing: border-box; /* Makes all elements fit on screen */
+  box-sizing: border-box; /* Makes all elements fit on screen */
 }
 
 body {
   width: 100vw;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   background-color: var(--button-ligher-grad);
   color: var(--text-color);
   font-family: var(--font-style), sans-serif;
@@ -64,7 +63,7 @@ nav a {
 }
 
 nav a:hover {
-  opacity: .7;
+  opacity: 0.7;
 }
 
 h2 {
@@ -72,7 +71,7 @@ h2 {
 }
 
 p {
-  letter-spacing: .08rem;
+  letter-spacing: 0.08rem;
   font-weight: var(--font-weight-600);
 }
 
@@ -86,8 +85,8 @@ p {
 
 .search {
   -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
   margin: 0;
   padding: 0;
 }
@@ -132,9 +131,9 @@ h1 {
 }
 
 .modal-body {
-  border-radius: .3rem;
+  border-radius: 0.3rem;
   border: 2px solid var(--button-ligher-grad);
-  background-color: var(--button-color)
+  background-color: var(--button-color);
 }
 
 .modal h1 {
@@ -152,9 +151,13 @@ h1 {
 .modal-footer {
   border-top: 0 none;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  padding-bottom: .5rem;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding-bottom: 0.5rem;
+}
+
+#loading {
+  z-index: 3;
 }
 
 .btn {
@@ -170,21 +173,22 @@ h1 {
   padding: 20px 15px;
   background: -webkit-gradient(
     linear,
-    right top, left top,
+    right top,
+    left top,
     from(var(--mushroom-dex-dark-color)),
     color-stop(5%, var(--mushroom-dex-color)),
     color-stop(95%, var(--mushroom-dex-color)),
     to(var(--mushroom-dex-dark-color))
-    );
+  );
   background: linear-gradient(
     to left,
     var(--mushroom-dex-dark-color) 0%,
     var(--mushroom-dex-color) 5%,
     var(--mushroom-dex-color) 95%,
     var(--mushroom-dex-dark-color) 100%
-    );
+  );
   color: #000;
-  border: .1px solid var(--mushroom-dex-dark-color);
+  border: 0.1px solid var(--mushroom-dex-dark-color);
   border-radius: 10px;
 }
 
@@ -198,8 +202,8 @@ h1 {
 .pokemon-list-button {
   width: 100%;
   margin: 8px 0;
-	text-align: center;
-	letter-spacing: 1px;
+  text-align: center;
+  letter-spacing: 1px;
   position: relative;
   border: none;
   background: transparent;
@@ -211,9 +215,9 @@ h1 {
   transition: filter 250ms;
   transition: filter 250ms, -webkit-filter 250ms;
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none; /* prohibits button text from being selected on iOs */
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; /* prohibits button text from being selected on iOs */
   -webkit-tap-highlight-color: transparent; /*removes gray rectangle that flashes when clicked */
 }
 
@@ -225,28 +229,15 @@ h1 {
   width: 100%;
   height: 100%;
   border-radius: 10px;
-  background: hsl(0deg 0% 0% / .025);
+  background: hsl(0deg 0% 0% / 0.025);
   will-change: transform;
   -webkit-transform: translateY(2px);
-          transform: translateY(2px);
-  -webkit-transition:
-    -webkit-transform
-    600ms
-    cubic-bezier(.3, .7, .4, 1);
-  transition:
-    -webkit-transform
-    600ms
-    cubic-bezier(.3, .7, .4, 1);
-  transition:
-    transform
-    600ms
-    cubic-bezier(.3, .7, .4, 1);
-  transition:
-    transform
-    600ms
-    cubic-bezier(.3, .7, .4, 1), -webkit-transform
-    600ms
-    cubic-bezier(.3, .7, .4, 1);
+  transform: translateY(2px);
+  -webkit-transition: -webkit-transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+  transition: -webkit-transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+  transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+  transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1),
+    -webkit-transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
 }
 
 /* middle layer of button */
@@ -259,7 +250,8 @@ h1 {
   border-radius: 11px;
   background: -webkit-gradient(
     linear,
-    right top, left top,
+    right top,
+    left top,
     from(var(--button-dark-grad)),
     color-stop(8%, var(--button-ligher-grad)),
     color-stop(92%, var(--button-ligher-grad)),
@@ -280,11 +272,11 @@ h1 {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   color: var(--text-color);
   font-size: 1rem;
   background: var(--button-color);
@@ -294,29 +286,16 @@ h1 {
   text-align: left;
   position: relative;
   padding: 0;
-  border: .1px solid #6e7f70;
+  border: 0.1px solid #6e7f70;
   border-radius: 10px;
   will-change: transform;
   -webkit-transform: translateY(-4px);
-          transform: translateY(-4px);
-  -webkit-transition:
-    -webkit-transform
-    600ms
-    cubic-bezier(.3, .7, .4, 1);
-  transition:
-    -webkit-transform
-    600ms
-    cubic-bezier(.3, .7, .4, 1);
-  transition:
-    transform
-    600ms
-    cubic-bezier(.3, .7, .4, 1);
-  transition:
-    transform
-    600ms
-    cubic-bezier(.3, .7, .4, 1), -webkit-transform
-    600ms
-    cubic-bezier(.3, .7, .4, 1);
+  transform: translateY(-4px);
+  -webkit-transition: -webkit-transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+  transition: -webkit-transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+  transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+  transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1),
+    -webkit-transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
 }
 
 .pokemon-list-button:hover {
@@ -325,35 +304,22 @@ h1 {
   transition: filter 250ms;
   transition: filter 250ms, -webkit-filter 250ms;
   -webkit-filter: brightness(105%);
-          filter: brightness(105%);
+  filter: brightness(105%);
 }
 
 .pokemon-list-button:hover .front {
   -webkit-transform: translateY(-6px);
-          transform: translateY(-6px);
-  -webkit-transition:
-    -webkit-transform
-    250ms
-    cubic-bezier(.3, .7, .4, 1.5);
-  transition:
-    -webkit-transform
-    250ms
-    cubic-bezier(.3, .7, .4, 1.5);
-  transition:
-    transform
-    250ms
-    cubic-bezier(.3, .7, .4, 1.5);
-  transition:
-    transform
-    250ms
-    cubic-bezier(.3, .7, .4, 1.5), -webkit-transform
-    250ms
-    cubic-bezier(.3, .7, .4, 1.5);
+  transform: translateY(-6px);
+  -webkit-transition: -webkit-transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+  transition: -webkit-transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+  transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+  transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5),
+    -webkit-transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
 }
 
 .pokemon-list-button:active .front {
   -webkit-transform: translateY(-2px);
-          transform: translateY(-2px);
+  transform: translateY(-2px);
   -webkit-transition: -webkit-transform 34ms;
   transition: -webkit-transform 34ms;
   transition: transform 34ms;
@@ -362,30 +328,17 @@ h1 {
 
 .pokemon-list-button:hover .shadow {
   -webkit-transform: translateY(4px);
-          transform: translateY(4px);
-  -webkit-transition:
-    -webkit-transform
-    250ms
-    cubic-bezier(.3, .7, .4, 1.5);
-  transition:
-    -webkit-transform
-    250ms
-    cubic-bezier(.3, .7, .4, 1.5);
-  transition:
-    transform
-    250ms
-    cubic-bezier(.3, .7, .4, 1.5);
-  transition:
-    transform
-    250ms
-    cubic-bezier(.3, .7, .4, 1.5), -webkit-transform
-    250ms
-    cubic-bezier(.3, .7, .4, 1.5);
+  transform: translateY(4px);
+  -webkit-transition: -webkit-transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+  transition: -webkit-transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+  transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+  transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5),
+    -webkit-transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
 }
 
 .pokemon-list-button:active .shadow {
   -webkit-transform: translateY(1px);
-          transform: translateY(1px);
+  transform: translateY(1px);
   -webkit-transition: -webkit-transform 34ms;
   transition: -webkit-transform 34ms;
   transition: transform 34ms;
@@ -400,13 +353,12 @@ h1 {
     screens larger than 576px
   =======================================*/
 @media all and (min-width: 576px) {
-
   .pokeDex_h3 {
     padding-top: 20px;
     float: left;
   }
 
-  .pokemon-list{
+  .pokemon-list {
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: 1fr 10px 1fr;
@@ -424,13 +376,12 @@ h1 {
     screens larger than 700px
   =======================================*/
 @media all and (min-width: 850px) {
-
   .pokeDex_h3 {
     padding-top: 20px;
     float: left;
   }
 
-  .pokemon-list{
+  .pokemon-list {
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: 1fr 10px 1fr 10px 1fr;
@@ -448,13 +399,12 @@ h1 {
     screens larger than 1200px
   =======================================*/
 @media all and (min-width: 1200px) {
-
   .pokeDex_h3 {
     padding-top: 20px;
     float: left;
   }
 
-  .pokemon-list{
+  .pokemon-list {
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: 1fr 10px 1fr 10px 1fr 10px 1fr;
