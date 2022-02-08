@@ -1,18 +1,17 @@
-
 :root {
   --background: #9bc688; /* White */
   --secondary-color: #d9d9d9; /* light gray */
   --text-color: #000; /* black */
-  --button-color: #DCFFE1; /* mint green */
+  --button-color: #dcffe1; /* mint green */
   --button-ligher-grad: #6e7f70; /* dark green */
   --button-dark-grad: #58665a; /* darker green */
 
-  --mushroom-dex-color: #B7B7B7; /* steal gray */
+  --mushroom-dex-color: #b7b7b7; /* steal gray */
   --mushroom-dex-dark-color: #a4a4a4; /* dark gray */
   --mushroom-dex-border: #a8abac; /* dark tan */
 
-  --font-style: 'Alegreya Sans';
-  --secondary-style: 'Titillium Web';
+  --font-style: "Alegreya Sans";
+  --secondary-style: "Titillium Web";
   --font-size: 16px;
   --font-weight-300: 300;
   --font-weight-400: 400;
@@ -48,7 +47,7 @@ nav a {
 }
 
 nav a:hover {
-  opacity: .7;
+  opacity: 0.7;
 }
 
 h2 {
@@ -56,7 +55,7 @@ h2 {
 }
 
 p {
-  letter-spacing: .08rem;
+  letter-spacing: 0.08rem;
   font-weight: var(--font-weight-600);
 }
 
@@ -114,9 +113,9 @@ h1 {
 }
 
 .modal-body {
-  border-radius: .3rem;
+  border-radius: 0.3rem;
   border: 2px solid var(--button-ligher-grad);
-  background-color: var(--button-color)
+  background-color: var(--button-color);
 }
 
 .modal h1 {
@@ -134,7 +133,11 @@ h1 {
 .modal-footer {
   border-top: 0 none;
   justify-content: center;
-  padding-bottom: .5rem;
+  padding-bottom: 0.5rem;
+}
+
+#loading {
+  z-index: 3;
 }
 
 .btn {
@@ -154,9 +157,9 @@ h1 {
     var(--mushroom-dex-color) 5%,
     var(--mushroom-dex-color) 95%,
     var(--mushroom-dex-dark-color) 100%
-    );
+  );
   color: #000;
-  border: .1px solid var(--mushroom-dex-dark-color);
+  border: 0.1px solid var(--mushroom-dex-dark-color);
   border-radius: 10px;
 }
 
@@ -170,8 +173,8 @@ h1 {
 .pokemon-list-button {
   width: 100%;
   margin: 8px 0;
-	text-align: center;
-	letter-spacing: 1px;
+  text-align: center;
+  letter-spacing: 1px;
   position: relative;
   border: none;
   background: transparent;
@@ -191,13 +194,10 @@ h1 {
   width: 100%;
   height: 100%;
   border-radius: 10px;
-  background: hsl(0deg 0% 0% / .025);
+  background: hsl(0deg 0% 0% / 0.025);
   will-change: transform;
   transform: translateY(2px);
-  transition:
-    transform
-    600ms
-    cubic-bezier(.3, .7, .4, 1);
+  transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
 }
 
 /* middle layer of button */
@@ -231,14 +231,11 @@ h1 {
   text-align: left;
   position: relative;
   padding: 0;
-  border: .1px solid #6e7f70;
+  border: 0.1px solid #6e7f70;
   border-radius: 10px;
   will-change: transform;
   transform: translateY(-4px);
-  transition:
-    transform
-    600ms
-    cubic-bezier(.3, .7, .4, 1);
+  transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
 }
 
 .pokemon-list-button:hover {
@@ -248,10 +245,7 @@ h1 {
 
 .pokemon-list-button:hover .front {
   transform: translateY(-6px);
-  transition:
-    transform
-    250ms
-    cubic-bezier(.3, .7, .4, 1.5);
+  transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
 }
 
 .pokemon-list-button:active .front {
@@ -261,10 +255,7 @@ h1 {
 
 .pokemon-list-button:hover .shadow {
   transform: translateY(4px);
-  transition:
-    transform
-    250ms
-    cubic-bezier(.3, .7, .4, 1.5);
+  transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
 }
 
 .pokemon-list-button:active .shadow {
@@ -280,13 +271,12 @@ h1 {
     screens larger than 576px
   =======================================*/
 @media all and (min-width: 576px) {
-
   .pokeDex_h3 {
     padding-top: 20px;
     float: left;
   }
 
-  .pokemon-list{
+  .pokemon-list {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 10px;
@@ -302,13 +292,12 @@ h1 {
     screens larger than 700px
   =======================================*/
 @media all and (min-width: 850px) {
-
   .pokeDex_h3 {
     padding-top: 20px;
     float: left;
   }
 
-  .pokemon-list{
+  .pokemon-list {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 10px;
@@ -324,13 +313,12 @@ h1 {
     screens larger than 1200px
   =======================================*/
 @media all and (min-width: 1200px) {
-
   .pokeDex_h3 {
     padding-top: 20px;
     float: left;
   }
 
-  .pokemon-list{
+  .pokemon-list {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 10px;
