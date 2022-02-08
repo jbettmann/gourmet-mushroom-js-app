@@ -1,8 +1,8 @@
 //  IIFE for pokemonList to avoid accidentally accessing the Global state
 let pokemonRepo = (function() {
   let pokemonList = [];
-  let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
-  let modalContainer = document.querySelector("#modal-container");
+  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+  let modalContainer = document.querySelector('#modal-container');
 
   // accesses pokemonList array
   function getAll() {
@@ -12,7 +12,7 @@ let pokemonRepo = (function() {
   // adds new pokemon item to pokemonList array
   function add(item) {
     // checks item is an object in order to be summited
-    if (typeof item === "object" && "name" in item) {
+    if (typeof item === 'object' && 'name' in item) {
       // alerts that new pokemon was found!
       pokemonList.push(item);
       // If not valid object, alerts to double check pokemon is an object.
@@ -23,21 +23,21 @@ let pokemonRepo = (function() {
     }
   }
 
-  // adds list items to ul
+  // adds list items to u
   async function addListItem(pokemonName) {
     // delaries variable
-    let pokemonListItems = document.querySelector("ul");
+    let pokemonListItems = document.querySelector('ul');
     // creates list items
-    let listItem = document.createElement("li");
+    let listItem = document.createElement('li');
 
     // creates buttons for list
-    let button = document.createElement("button");
+    let button = document.createElement('button');
     // creates bottom layer for button styling
-    let spanShadow = document.createElement("span");
+    let spanShadow = document.createElement('span');
     // creates middle layer for button styling
-    let spanEdge = document.createElement("span");
+    let spanEdge = document.createElement('span');
     // creates front layer of button for styling
-    let spanFront = document.createElement("span");
+    let spanFront = document.createElement('span');
 
     // AJAX request to get image url for each pokemon
     loadDetails(pokemonName).then(() => {
@@ -47,17 +47,17 @@ let pokemonRepo = (function() {
       spanFront.innerText = pokemonName.name;
 
       // adds classes to selected span elements
-      spanShadow.classList.add("shadow");
-      spanEdge.classList.add("edge");
-      spanFront.classList.add("front");
-      button.classList.add("pokemon-list-button");
+      spanShadow.classList.add('shadow');
+      spanEdge.classList.add('edge');
+      spanFront.classList.add('front');
+      button.classList.add('pokemon-list-button');
       // applys 'group-list-item' class (Bootstrap class name) to 'li'
-      listItem.classList.add("group-list-item");
-      listItem.classList.add("col");
+      listItem.classList.add('group-list-item');
+      listItem.classList.add('col');
 
-      let pokemonImage = document.createElement("img");
+      let pokemonImage = document.createElement('img');
       pokemonImage.src = pokemonName.imageUrl;
-      pokemonImage.classList.add("pokemon-image");
+      pokemonImage.classList.add('pokemon-image');
 
       // myImg.attr("src", pokemonName.imageUrl);
 
@@ -76,7 +76,7 @@ let pokemonRepo = (function() {
   // Event listener for 'click' and console logs name of object clicked.
   // parameter names do not matter, just as long as the match each other in function
   function buttonEventClick(button, pokemon) {
-    return button.addEventListener("click", function() {
+    return button.addEventListener('click', function() {
       return showDetails(pokemon);
     });
   }
@@ -89,23 +89,23 @@ let pokemonRepo = (function() {
   }
 
   function showModal(pokemon) {
-    modalTitle = $(".modal-title");
-    modalBody = $(".modal-body");
+    let modalTitle = $('.modal-title');
+    let modalBody = $('.modal-body');
 
     modalBody.empty();
     modalTitle.empty();
 
     //  assign pokemon name to pokemonTitle
-    let pokemonTitle = $("<h1>" + pokemon.name + "</h1>");
+    let pokemonTitle = $('<h1>' + pokemon.name + '</h1>');
     //  assign pokemon image scr to pokemonIamge
-    let pokemonImage = $(`<img class="modal-img" style="width:50%">`);
+    let pokemonImage = $('<img class="modal-img" style="width:50%">');
     //  attach pokemon image src to pokemonImage
-    pokemonImage.attr("src", pokemon.imageUrl);
+    pokemonImage.attr('src', pokemon.imageUrl);
     //  assing pokemon height to pokemonHeight
-    let pokemonHeight = $("<p>" + `Height: ${pokemon.height}` + "<p>");
+    let pokemonHeight = $('<p>' + `Height: ${pokemon.height}` + '<p>');
     //  attach pokemon types \ to pokemonType
     let pokemonTypes = $(
-      "<p>" + `Type(s): ${pokemon.types.join(", ")}` + "<p>"
+      '<p>' + `Type(s): ${pokemon.types.join(', ')}` + '<p>'
     );
 
     // attach pokemonName to modalTitle (pokemonName becomes child element on modalTitle)
@@ -115,7 +115,7 @@ let pokemonRepo = (function() {
     modalBody.append(pokemonHeight);
     modalBody.append(pokemonTypes);
 
-    $("#modal-container").modal();
+    $('#modal-container').modal();
   }
 
   // OLD MODAL - BUILT FROM SCRATCH - VANILLA JAVASCRIPT
@@ -160,7 +160,7 @@ let pokemonRepo = (function() {
 
   // hides modal by removing 'is-visible' class from modalContainer
   function hideModal() {
-    modalContainer.classList.remove("is-visible");
+    modalContainer.classList.remove('is-visible');
   }
 
   // filters .pokemonList array by 'name' key
@@ -237,13 +237,13 @@ let pokemonRepo = (function() {
 
   // searches for pokemon name in search input field on HTML
   $(document).ready(function() {
-    $(".myInput").on("keyup", function() {
+    $('.myInput').on('keyup', function() {
       // .toLowerCase makes the search case insensitive
       var value = $(this)
         .val()
         .toLowerCase();
       // .toggle removes any rows(search items) that do not match
-      $(".pokemon-list li").filter(function() {
+      $('.pokemon-list li').filter(function() {
         $(this).toggle(
           $(this)
             .text()
@@ -254,20 +254,29 @@ let pokemonRepo = (function() {
     });
   });
 
+  //======= Did not work =========
+  // function resetForms() {
+  //   document.getElementById('myInput').reset();
+  // }
+  //
+  // $(document).ready(function() {
+  //   resetForms();
+  // });
+
   // removes loading icon (div id="loading") once page has loaded
-  $(window).on("load", function() {
-    $("#loading").hide();
+  $(window).on('load', function() {
+    $('#loading').hide();
   });
 
   // adds event listener to modal above in showDetails to close when "escape" key is presed
-  window.addEventListener("keydown", e => {
-    if (e.key === "Escape" && modalContainer.classList.contains("is-visible")) {
+  window.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
       hideModal();
     }
   });
   // adds event listener to modal above in showDetails to close when click
   // specifically happens outside of modal or in modalContainer
-  modalContainer.addEventListener("click", e => {
+  modalContainer.addEventListener('click', e => {
     // Since this is also triggered when clicking INSIDE the modal container,
     // We only want to close if the user clicks directly on the overlay
     let target = e.target;
@@ -278,15 +287,15 @@ let pokemonRepo = (function() {
 
   // objects being defined
   return {
-    getAll: getAll,
-    add: add,
-    searchName: searchName,
-    loadList: loadList,
-    loadDetails: loadDetails,
-    addListItem: addListItem,
-    showDetails: showDetails,
-    buttonEventClick: buttonEventClick,
-    showModal: showModal
+    getAll,
+    add,
+    searchName,
+    loadList,
+    loadDetails,
+    addListItem,
+    showDetails,
+    buttonEventClick,
+    showModal
   };
 })();
 
