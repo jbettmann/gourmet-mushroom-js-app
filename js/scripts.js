@@ -237,7 +237,7 @@ let pokemonRepo = (function() {
 
   // searches for pokemon name in search input field on HTML
   $(document).ready(function() {
-    $('.myInput').on('keyup', function() {
+    $('.myInput').on('input', function() {
       // .toLowerCase makes the search case insensitive
       var value = $(this)
         .val()

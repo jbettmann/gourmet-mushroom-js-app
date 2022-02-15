@@ -58,7 +58,7 @@ let pokemonRepo = (function() {
   }
   return (
     $(document).ready(function() {
-      $('.myInput').on('keyup', function() {
+      $('.myInput').on('input', function() {
         var e = $(this)
           .val()
           .toLowerCase();
