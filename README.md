@@ -14,4 +14,4 @@ This PokeDex loads data from an external API \([PokéAPI](https://pokeapi.co)\).
 - jQuery
 - Bootstrap
 
-Try out the [PokeDex](https://jbettmann.github.io/gourmet-mushroom-js-app/index.html).
+Try out the [PokeDex](https://jbettmann.github.io/pokedex-app/index.html).
