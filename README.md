@@ -7,8 +7,8 @@ JavaScript that loads data from an external API \([PokéAPI](https://pokeapi.co)
 
 <p float='middle'>
 
-  <img width="50%" alt="PokeDex mobile with details of pokemon " src="https://user-images.githubusercontent.com/96999730/171458449-79ba9ee8-8e55-49f7-bc29-994a2533e9ad.png">
-  <img width="50%" alt="PokeDex homepage" src="https://user-images.githubusercontent.com/96999730/171458477-872d7c23-763c-4da1-88b1-ef4f4299b9f9.png">
+  <img width="25%" alt="PokeDex mobile with details of pokemon " src="https://user-images.githubusercontent.com/96999730/171458449-79ba9ee8-8e55-49f7-bc29-994a2533e9ad.png">
+  <img width="75%" alt="PokeDex homepage" src="https://user-images.githubusercontent.com/96999730/171458477-872d7c23-763c-4da1-88b1-ef4f4299b9f9.png">
 
 </p>
 
