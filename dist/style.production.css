@@ -1,17 +1,17 @@
 /*
 * Prefixed by https://autoprefixer.github.io
-* PostCSS: v8.3.6,
-* Autoprefixer: v10.3.1
-* Browsers: last 2 version
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
 */
 
 :root {
-  --background: #9bc688; /* White */
-  --secondary-color: #d9d9d9; /* light gray */
+  --background: #f36060; /* White */
+  --secondary-color: #f36060; /* light gray */
   --text-color: #000; /* black */
-  --button-color: #dcffe1; /* mint green */
-  --button-ligher-grad: #6e7f70; /* dark green */
-  --button-dark-grad: #58665a; /* darker green */
+  --button-color: #21edf1; /* mint green */
+  --button-ligher-grad: #f36060; /* dark green */
+  --button-dark-grad: #cb5252; /* darker green */
 
   --mushroom-dex-color: #b7b7b7; /* steal gray */
   --mushroom-dex-dark-color: #a4a4a4; /* dark gray */
@@ -28,21 +28,21 @@
 
 * {
   -webkit-box-sizing: border-box;
-  box-sizing: border-box; /* Makes all elements fit on screen */
+          box-sizing: border-box; /* Makes all elements fit on screen */
 }
 
 body {
   width: 100vw;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   background-color: var(--button-ligher-grad);
   color: var(--text-color);
   font-family: var(--font-style), sans-serif;
@@ -52,13 +52,14 @@ body {
 
 nav {
   font-weight: var(--font-weight-600);
-  background-color: var(--button-color);
+  background-color: inherit;
   border-bottom: 2px var(--button-ligher-grad) solid;
 }
 
 nav a {
   font-family: var(--font-style);
   -webkit-transition: 0.4s opacity;
+  -o-transition: 0.4s opacity;
   transition: 0.4s opacity;
 }
 
@@ -75,6 +76,10 @@ p {
   font-weight: var(--font-weight-600);
 }
 
+.col {
+  margin-bottom: 1rem; 
+}
+
 .pokeDex_h3 {
   font-family: var(--secondary-style);
   font-size: 16px;
@@ -85,8 +90,8 @@ p {
 
 .search {
   -webkit-box-pack: end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   margin: 0;
   padding: 0;
 }
@@ -151,8 +156,8 @@ h1 {
 .modal-footer {
   border-top: 0 none;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   padding-bottom: 0.5rem;
 }
 
@@ -171,25 +176,9 @@ h1 {
   margin: 80px auto;
   min-width: 200px;
   padding: 20px 15px;
-  background: -webkit-gradient(
-    linear,
-    right top,
-    left top,
-    from(var(--mushroom-dex-dark-color)),
-    color-stop(5%, var(--mushroom-dex-color)),
-    color-stop(95%, var(--mushroom-dex-color)),
-    to(var(--mushroom-dex-dark-color))
-  );
-  background: linear-gradient(
-    to left,
-    var(--mushroom-dex-dark-color) 0%,
-    var(--mushroom-dex-color) 5%,
-    var(--mushroom-dex-color) 95%,
-    var(--mushroom-dex-dark-color) 100%
-  );
+  
   color: #000;
-  border: 0.1px solid var(--mushroom-dex-dark-color);
-  border-radius: 10px;
+ 
 }
 
 .pokemon-list {
@@ -212,32 +201,29 @@ h1 {
   outline-offset: 4px;
   -webkit-transition: -webkit-filter 250ms;
   transition: -webkit-filter 250ms;
+  -o-transition: filter 250ms;
   transition: filter 250ms;
   transition: filter 250ms, -webkit-filter 250ms;
   -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none; /* prohibits button text from being selected on iOs */
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none; /* prohibits button text from being selected on iOs */
   -webkit-tap-highlight-color: transparent; /*removes gray rectangle that flashes when clicked */
 }
 
 /* last or bottom layer of button */
 .shadow {
-  position: absolute;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+  /* position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  border-radius: 10px;
-  background: hsl(0deg 0% 0% / 0.025);
+  border-radius: 11px;
   will-change: transform;
-  -webkit-transform: translateY(2px);
   transform: translateY(2px);
-  -webkit-transition: -webkit-transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
-  transition: -webkit-transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
-  transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
-  transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1),
-    -webkit-transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+  transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1); */
 }
 
 /* middle layer of button */
@@ -248,22 +234,6 @@ h1 {
   width: 100%;
   height: 100%;
   border-radius: 11px;
-  background: -webkit-gradient(
-    linear,
-    right top,
-    left top,
-    from(var(--button-dark-grad)),
-    color-stop(8%, var(--button-ligher-grad)),
-    color-stop(92%, var(--button-ligher-grad)),
-    to(var(--button-dark-grad))
-  );
-  background: linear-gradient(
-    to left,
-    var(--button-dark-grad) 0%,
-    var(--button-ligher-grad) 8%,
-    var(--button-ligher-grad) 92%,
-    var(--button-dark-grad) 100%
-  );
 }
 
 /* top most layer of button  */
@@ -272,75 +242,86 @@ h1 {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   color: var(--text-color);
   font-size: 1rem;
   background: var(--button-color);
+  -webkit-box-shadow: 1px 1px 10px 2px #17b0b3 !important;
+          box-shadow: 1px 1px 10px 2px #17b0b3 !important;  
   font-family: var(--secondary-style), sans-serif;
   font-weight: var(--font-weight-600);
   text-transform: capitalize;
   text-align: left;
   position: relative;
   padding: 0;
-  border: 0.1px solid #6e7f70;
   border-radius: 10px;
   will-change: transform;
-  -webkit-transform: translateY(-4px);
-  transform: translateY(-4px);
+  -webkit-transform: translateY(-2px);
+      -ms-transform: translateY(-2px);
+          transform: translateY(-2px);
   -webkit-transition: -webkit-transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
   transition: -webkit-transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+  -o-transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
   transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
-  transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1),
-    -webkit-transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+  transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1), -webkit-transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
 }
 
 .pokemon-list-button:hover {
   -webkit-transition: -webkit-filter 250ms;
   transition: -webkit-filter 250ms;
+  -o-transition: filter 250ms;
   transition: filter 250ms;
   transition: filter 250ms, -webkit-filter 250ms;
-  -webkit-filter: brightness(105%);
-  filter: brightness(105%);
+  -webkit-filter: brightness(109%);
+          filter: brightness(109%);
 }
 
 .pokemon-list-button:hover .front {
-  -webkit-transform: translateY(-6px);
-  transform: translateY(-6px);
-  -webkit-transition: -webkit-transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
-  transition: -webkit-transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
-  transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
-  transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5),
-    -webkit-transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+  -webkit-transform: translateY(-4px);
+      -ms-transform: translateY(-4px);
+          transform: translateY(-4px);
+  -webkit-filter: drop-shadow(1px 1px 5px #21dde0);
+          filter: drop-shadow(1px 1px 5px #21dde0);
+  -webkit-transition: -webkit-transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5), -webkit-filter 200ms ease-out;
+  transition: -webkit-transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5), -webkit-filter 200ms ease-out;
+  -o-transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5), filter 200ms ease-out;
+  transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5), filter 200ms ease-out;
+  transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5), filter 200ms ease-out, -webkit-transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5), -webkit-filter 200ms ease-out;
 }
 
 .pokemon-list-button:active .front {
   -webkit-transform: translateY(-2px);
-  transform: translateY(-2px);
+      -ms-transform: translateY(-2px);
+          transform: translateY(-2px);
   -webkit-transition: -webkit-transform 34ms;
   transition: -webkit-transform 34ms;
+  -o-transition: transform 34ms;
   transition: transform 34ms;
   transition: transform 34ms, -webkit-transform 34ms;
 }
 
 .pokemon-list-button:hover .shadow {
   -webkit-transform: translateY(4px);
-  transform: translateY(4px);
+      -ms-transform: translateY(4px);
+          transform: translateY(4px);
   -webkit-transition: -webkit-transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
   transition: -webkit-transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+  -o-transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
   transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
-  transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5),
-    -webkit-transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+  transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5), -webkit-transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
 }
 
 .pokemon-list-button:active .shadow {
   -webkit-transform: translateY(1px);
-  transform: translateY(1px);
+      -ms-transform: translateY(1px);
+          transform: translateY(1px);
   -webkit-transition: -webkit-transform 34ms;
   transition: -webkit-transform 34ms;
+  -o-transition: transform 34ms;
   transition: transform 34ms;
   transition: transform 34ms, -webkit-transform 34ms;
 }
