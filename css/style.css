@@ -39,7 +39,10 @@ nav {
   font-weight: var(--font-weight-600);
   background-color: inherit;
   border-bottom: 2px var(--button-ligher-grad) solid;
+  flex-direction: column;
+  justify-content: center;
 }
+
 
 nav a {
   font-family: var(--font-style);
@@ -48,6 +51,10 @@ nav a {
 
 nav a:hover {
   opacity: 0.7;
+}
+
+.navbar {
+  margin: 0 !important;
 }
 
 h2 {
@@ -262,6 +269,13 @@ h1 {
     screens larger than 576px
   =======================================*/
 @media all and (min-width: 576px) {
+  nav {
+    font-weight: var(--font-weight-600);
+    background-color: inherit;
+    border-bottom: 2px var(--button-ligher-grad) solid;
+    flex-direction: row;
+    padding: .5rem 4.5rem !important;
+  }
   .pokeDex_h3 {
     padding-top: 20px;
     float: left;

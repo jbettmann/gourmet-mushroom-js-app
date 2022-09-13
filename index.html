@@ -22,11 +22,21 @@
       href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;500;700&family=Titillium+Web:wght@300;400;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" type="text/css" href="dist/style.production" />
+    <link rel="stylesheet" type="text/css" href="dist/style.production.css" />
   </head>
   <body>
     <nav class="navbar custom fixed-top navbar-light">
-      <a class="navbar-brand" href="index.html"><h2>PokéDex</h2></a>
+      <a class="navbar-brand navbar" href="index.html"><h2>PokéDex</h2></a>
+      <!-- Search form -->
+      <form class="search form-inline">
+        <input
+          class="form-control mr-sm-2 myInput"
+          id="myInput"
+          type="search"
+          placeholder="Search Pokemon..."
+          aria-label="Search"
+        />
+      </form>
     </nav>
 
     <!-- Modal -->
@@ -72,17 +82,6 @@
 
     <!-- Pokemon list -->
     <div class="pokemonDex">
-      <h3 class="pokeDex_h3">PokéDex</h3>
-      <!-- Search form -->
-      <form class="search form-inline">
-        <input
-          class="form-control mr-sm-2 myInput"
-          id="myInput"
-          type="search"
-          placeholder="Search Pokemon..."
-          aria-label="Search"
-        />
-      </form>
       <ul class="list-group pokemon-list row"></ul>
     </div>
 
